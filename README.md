@@ -57,7 +57,7 @@ To contribute,
 
 [Chapter 12, Problem 4]
 - Question (JG): What is the result of submitting the following program?
-- Answer (): 
+- Answer (JG): 
 
 data work.getobs5;
     obsnum=5;
