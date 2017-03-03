@@ -55,7 +55,7 @@ To contribute,
 
 ## Chapter 12 Questions
 
-## _**[Chapter 12, Problem 4]**_
+**[Chapter 12, Problem 4]**
  _ **Question (JG): What is the result of submitting the following program?** _
 
     _data work.getobs5;_
