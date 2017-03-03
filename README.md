@@ -56,6 +56,7 @@ To contribute,
 ## Chapter 12 Questions
 
 * **[Chapter 12, Problem 4]**
+
  * Question (JG): What is the result of submitting the following program?
  
  
