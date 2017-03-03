@@ -58,7 +58,8 @@ To contribute,
 * **[Chapter 12, Problem 4]**
  * Question (JG): What is the result of submitting the following program?
  
-        > data work.getobs5;
+ 
+        data work.getobs5;
         
             obsnum=5;
             
@@ -67,6 +68,7 @@ To contribute,
             stop;
             
         run;
+        
 
  * Answer: TBD
 
