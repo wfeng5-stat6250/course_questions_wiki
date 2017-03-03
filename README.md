@@ -55,15 +55,14 @@ To contribute,
 
 ## Chapter 12 Questions
 
-[Chapter 12, Problem 4]
-- Question (JG): What is the result of submitting the following program?
-- Answer (JG): 
+## _**[Chapter 12, Problem 4]**_
+ _ **Question (JG): What is the result of submitting the following program?** _
 
-data work.getobs5;
-    obsnum=5;
-    set company.usa(keep=manager payroll) point=obsnum;
-    stop;
-run;
+    _data work.getobs5;_
+        _obsnum=5;_
+        _set company.usa(keep=manager payroll) point=obsnum;_
+        _stop;_
+    _run;_
 
 
 ## Chapter 13 Questions
