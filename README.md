@@ -20,12 +20,19 @@ The instructor will then review the pull request and make comments should furthe
 
 ## Chapter 1 Questions
 
+[Chapter 1, Problem 1]
+- Question (SK): Is indentation  crucial in SAS or it is just for readability? If not then why does some programs gives error because of wrong indentation?
+- Answer (SK): Writing codes with proper indent is a best practice for programming.
 
 ## Chapter 2 Questions
 
 [Chapter 2, Problem 7]
 - Question (IL): What's the difference between starting a SAS program with "data" versus "proc", and why do both end types of programs end with the same "run" command, even though the bodies of the programs look nothing alike?
 - Answer (IL): SAS programs are divided into "steps", each step is either a data step or a proc step (as determined by the first word in the step), and all steps are typically terminated by a "run" statement. However, when using a "cards" or "dataline" statement in a data step, then the data step is terminated by a closing semicolon. In addition, some procs (like the interactive proc glm) are only terminated with a "quit" statement.
+
+[Chapter 2, Problem 7]
+- Question (SK): What is YEARCUTOFF= option? Why is this different in two year and four year naming conventions?
+- Answer (SK): The value of the YEARCUTOFF= system option affects only two-digit year values. A date value that contains a four-digit year value will be interpreted correctly even if it does not fall within the 100-year span set by the YEARCUTOFF= system option.
 
 [Chapter 2, Problem 9]
 - Question (IL): What is a "libref", and how does it differ from a "LIBNAME"?  In particular, what fundamental distinction causes one to be written out in lower-case letters and the other in upper-case letters?
@@ -39,9 +46,15 @@ The instructor will then review the pull request and make comments should furthe
 
 ## Chapter 5 Questions
 
+[Chapter 5 , Problem 7]
+- Question (SK): Is there a way we can change the columns name and its size once we defined them ? How can we delete a column or reduce its size?
+- Answer : TBD
 
 ## Chapter 6 Questions
 
+[Chapter 6 , Problem 6]
+- Question (SK): When does LINES or CARDS  statements are used in the last statement of a data step ? when both are alias of   DATALINE statement?
+- Answer (SK): TBD
 
 ## Chapter 7 Questions
 
