@@ -19,6 +19,7 @@ The instructor will then review the pull request and make comments should furthe
 ********************************************************************************
 
 ## Chapter 1 Questions
+
 [Chapter 1, Problem 1]
 - Question (SK): Is indentation  crucial in SAS or it is just for readability? If not then why does some programs gives error because of wrong indentation?
 - Answer (SK): Writing codes with proper indent is a best practice for programming.
@@ -41,14 +42,19 @@ The instructor will then review the pull request and make comments should furthe
 
 
 ## Chapter 4 Questions
-[Chapter 4, Problem 3]
--
+
 
 ## Chapter 5 Questions
 
+[Chapter 5 , Problem 7]
+- Question (SK): Is there a way we can change the columns name and its size once we defined them ? How can we delete a column or reduce its size?
+- Answer : TBD
 
 ## Chapter 6 Questions
 
+[Chapter 6 , Problem 6]
+- Question (SK): When does LINES or CARDS  statements are used in the last statement of a data step ? when both are alias of   DATALINE statement?
+- Answer (SK) :
 
 ## Chapter 7 Questions
 
