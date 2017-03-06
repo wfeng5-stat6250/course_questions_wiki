@@ -32,7 +32,7 @@ To contribute,
 
 [Chapter 2, Problem 9]
 - Question (IL): What is a "libref", and how does it differ from a "LIBNAME"?  In particular, what fundamental distinction causes one to be written out in lower-case letters and the other in upper-case letters?
-- Answer: TBD
+- Answer (SG): A libname statement is the syntactical statement used to initiate a particular library. The libref is the actual syntax used to name it.
 
 ## Chapter 3 Questions
 
@@ -60,6 +60,17 @@ To contribute,
 
 ## Chapter 12 Questions
 
+* **[Chapter 12, Problem 4]**
+ * Question (JG): What is the result of submitting the following program?
+ ```SAS
+        data work.getobs5;
+            obsnum=5;
+            set company.usa(keep=manager payroll) point=obsnum;
+            stop;
+        run;
+```
+
+ * Answer: TBD
 
 ## Chapter 13 Questions
 
