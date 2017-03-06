@@ -14,6 +14,8 @@ To contribute,
 
 - your version of the repo as the head fork.
 
+The instructor will then review the pull request and make comments should further revision be needed. Then, after the contents of the pull request have been finalized without any merge conflicts, the instructor will merge the pull request.
+
 ********************************************************************************
 
 ## Chapter 1 Questions
