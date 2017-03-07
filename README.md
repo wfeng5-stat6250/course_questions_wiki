@@ -39,18 +39,23 @@ The instructor will then review the pull request and make comments should furthe
 - Answer (SG): A libname statement is the syntactical statement used to initiate a particular library. The libref is the actual syntax used to name it.
 
 ## Chapter 3 Questions
-
+- Question (AS): Is there a way to print out the values of certain variables during debugging i.e. equivalent of a print statement?
+- Answer: TBD
 
 ## Chapter 4 Questions
 
 
 ## Chapter 5 Questions
-
-[Chapter 5 , Problem 7]
+[Chapter 5, Problem 7]
+- Question (AS): How to read a raw data set in which each observation's data values are on two lines?
+- Answer (AS): SAS provides the slash (/) and #n to handle cases where more than one record in the input file is required to compose one observation in the dataset. When SAS encounters a slash, it continues to read values till end of Input statement. Then writes the PDV out as one observation. The slash is a relative line pointer and #n is a specifc line pointer.
 - Question (SK): Is there a way we can change the columns name and its size once we defined them ? How can we delete a column or reduce its size?
-- Answer : TBD
+- Answer: TBD
 
 ## Chapter 6 Questions
+[Chapter 6, Problem 3]
+- Question (AS): What are the additional commands used to direct the DATA step not to execute for each record? What are the conditions in which we need to use such commands and what are the advantages? Can we give an example?
+- Answer (AS): Each iteration of a data step reads in data from the input file into the buffer,  the input statement writes it into the program data vector, and  at the end of the DATA step,SAS writes teh PDV contents out into the result dataset. Sometimes, you may need to test some conditions for selecting what observations get written out into teh result dataset. Based on an IF condition, The DELETE statement can be used to stop processing current iteration of data step and return to the beginning of the data step so that teh row is not written out to the result dataset.                  
 
 [Chapter 6 , Problem 6]
 - Question (SK): When does LINES or CARDS  statements are used in the last statement of a data step ? when both are alias of   DATALINE statement?
