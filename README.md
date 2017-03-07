@@ -30,17 +30,27 @@ To contribute,
 - Answer: TBD
 
 ## Chapter 3 Questions
+- Question (AS): Is there a way to print out the values of certain variables during debugging i.e. equivalent of a print statement?
 
 
 ## Chapter 4 Questions
 
 
 ## Chapter 5 Questions
-
-
+- Question (LZ): [Chapter 5, Problem 7] How to read a raw data set in which each observation's data values are on two lines?
+- Answer   (AS): SAS provides the slash (/) and #n to handle cases where more than one record in the input file is required to compose one
+                 observation in the dataset. When SAS encounters a slash, it continues to read values till end of Input statement. 
+                 Then writes the PDV out as one observation. The slash is a relative line pointer and #n is a specifc line pointer.
 ## Chapter 6 Questions
-
-
+- Question (AP): [Chapter 6, Problem 3]
+                 What are the additional commands used to direct the DATA step not to execute for each record?
+                 What are the conditions in which we need to use such commands and what are the advantages? Can we give an example?
+- Answer   (AS): Each iteration of a data step reads in data from the input file into the buffer, 
+                 the input statement writes it into the program data vector, and 
+                 at the end of the DATA step,SAS writes teh PDV contents out into the result dataset.
+                 Sometimes, you may need to test some conditions for selecting what observations get written out into teh result dataset.
+                 Based on an IF condition, The DELETE statement can be used to stop processing current iteration of data step 
+                 and return to the beginning of the data step so that teh row is not written out to the result dataset.                  
 ## Chapter 7 Questions
 
 
