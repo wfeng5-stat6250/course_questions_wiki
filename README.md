@@ -41,7 +41,8 @@ The instructor will then review the pull request and make comments should furthe
 - Answer: TBD
 
 ## Chapter 4 Questions
-
+-Question(BP): Can PROC PRINT default be changed for a session?
+-Answer(BP):DATA and PROC statements signal the beginning of a new step. When SAS encounters a subsequent DATA, PROC, or RUN statement (for DATA steps and most procedures) or a QUIT statement (for some procedures), SAS stops reading statements and executes the previous step in the program. In our sample program, each step ends with a RUN statement.
 
 ## Chapter 5 Questions
 [Chapter 5, Problem 7]
