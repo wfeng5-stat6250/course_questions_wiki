@@ -52,7 +52,35 @@ The instructor will then review the pull request and make comments should furthe
 - Question (AS): How to read a raw data set in which each observation's data values are on two lines?
 - Answer (AS): SAS provides the slash (/) and #n to handle cases where more than one record in the input file is required to compose one observation in the dataset. When SAS encounters a slash, it continues to read values till end of Input statement. Then writes the PDV out as one observation. The slash is a relative line pointer and #n is a specifc line pointer.
 - Question (SK): Is there a way we can change the columns name and its size once we defined them ? How can we delete a column or reduce its size?
-- Answer: TBD
+- Answer (IW): To delete a column in the SAS output, use *DROP* in the data option:
+```SAS
+        data sales_new(drop=store_inventory);
+            set sales_old;
+        run;
+```
+Alternatively, to delete any variable in a *DROP* statement within the DATA statement:.
+```SAS
+        data sales_new;
+            set sales_old;
+            drop store_inventory;
+        run;
+```
+To modify column name, use a *RENAME* statment:
+ ```SAS
+        data sales_new;
+            set sales_old;
+            rename store_inventory = total_inventory;
+        run;
+```
+
+Then to modify the column size, use a *PROC SQL* statement:
+ ```SAS
+        proc sql;
+         alter table sql.sales_new;
+            modify total_inventory int(5);
+        quit;
+```
+
 
 ## Chapter 6 Questions
 [Chapter 6, Problem 3]
