@@ -89,7 +89,7 @@ Then to modify the column size, use a *PROC SQL* statement:
 
 [Chapter 6 , Problem 6]
 - Question (SK): When does LINES or CARDS  statements are used in the last statement of a data step ? when both are alias of   DATALINE statement?
-- Answer (SK): TBD
+- Answer: TBD
 
 ## Chapter 7 Questions
 
