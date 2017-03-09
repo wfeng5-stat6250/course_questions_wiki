@@ -62,10 +62,10 @@ Alternatively, to delete any variable in a *DROP* statement within the DATA stat
 ```SAS
         data sales_new;
             set sales_old;
-            drop = store_inventory;
+            drop store_inventory;
         run;
 ```
-To modify column name, use a *RENAME* option:
+To modify column name, use a *RENAME* statment:
  ```SAS
         data sales_new;
             set sales_old;
