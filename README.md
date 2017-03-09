@@ -78,6 +78,7 @@ Then to modify the column size, use a *PROC SQL* statement:
         proc sql;
          alter table sql.sales_new;
             modify total_inventory int(5);
+        quit;
 ```
 
 
