@@ -105,8 +105,8 @@ Then to modify the column size, use a *PROC SQL* statement:
 
 ## Chapter 12 Questions
 
-* **[Chapter 12, Problem 4]**
- * Question (JG): What is the result of submitting the following program?
+[Chapter 12, Problem 4]
+ - Question (JG): What is the result of submitting the following program?
  ```SAS
         data work.getobs5;
             obsnum=5;
@@ -115,11 +115,13 @@ Then to modify the column size, use a *PROC SQL* statement:
         run;
 ```
 
- * Answer: TBD
+ - Answer: TBD
 
 ## Chapter 13 Questions
-
-
+[Chapter 13, Problem 5]
+ - Question (IW): How do you convert a numeric date, eg: 01032020 to a SAS date?
+ - Answer: TBD
+ 
 ## Chapter 14 Questions
 
 
