@@ -118,8 +118,10 @@ Then to modify the column size, use a *PROC SQL* statement:
  * Answer: TBD
 
 ## Chapter 13 Questions
-
-
+* **[Chapter 13, Problem 5]**
+ * Question (IW): How do you convert a numeric date, eg: 01032020 to a SAS date?
+ 
+ * Answer: TBD
 ## Chapter 14 Questions
 
 
