@@ -135,13 +135,48 @@ Then to modify the column size, use a *PROC SQL* statement:
 
 
 ## Chapter 6 Questions
-[Chapter 6, Problem 3]
+\[Chapter 6, Problem 1\]
+-   Question (WF): What is the size of the input buffer?
+-   Answer (WF): The default input buffer size on Windows is 256 bytes.
+
+\[Chapter 6, Problem 2\]
+- Question (WF): Since incorrect values and formats are not considered syntax errors, how can they best be detected and fixed?
+- Answer (WF): Semantic Errors shows in the SAS log window, and <span id="z1377902" class="anchor"></span>you can use system options to control error handling (resolve errors) in your program.
+
+- Question (WF): what does it look like in SAS execution step when there is incorrect values and formates?
+- Answer (WF): SAS skids the wrong codes and write error to SAS log.
+
+\[Chapter 6, Problem 3\]
 - Question (AS): What are the additional commands used to direct the DATA step not to execute for each record? What are the conditions in which we need to use such commands and what are the advantages? Can we give an example?
 - Answer (AS): Each iteration of a data step reads in data from the input file into the buffer,  the input statement writes it into the program data vector, and  at the end of the DATA step,SAS writes teh PDV contents out into the result dataset. Sometimes, you may need to test some conditions for selecting what observations get written out into teh result dataset. Based on an IF condition, The DELETE statement can be used to stop processing current iteration of data step and return to the beginning of the data step so that teh row is not written out to the result dataset.                  
 
+- Question (WF): What type of statement is used for the data step to execute more than once for each record in the input file?
+- Answer (WF): using \# to move pointer to different row of in the group, for example:
+
+```SAS
+
+        INPUT
+        #1 row1 2. data1 $7. @11 ar1 1.
+        #2 row2 2. data2 $7. @11 ar2 1.
+```
+\[Chapter 6, Problem 4\]
+- Question (WF): At the beginning of the execution phase, can the value \_N\_  and \_ERROR\_ be different than the default value?
+- Answer (WF): \_N\_<span id="a001375305" class="anchor"></span>is initially set to 1. Each time the DATA step loops past the DATA statement, the variable \_N\_ increments by 1. The value of \_N\_ represents the number of times the DATA step has iterated.<span id="a001375306" class="anchor"></span> \_ERROR\_<span id="a001375307" class="anchor"></span>is 0 by default but is set to 1 whenever an error is encountered, such as an input data error, a conversion error, or a math error, as in division by 0 or a floating point overflow. You can use the value of this variable to help locate errors in data records and to print an error message to the SAS log.
+
+\[Ch 6, Q5\]
+- Question (WF): Is it possible to sum up the total \_ERROR\_ count
+    for a summary statistic?
+- Answer (WF): \_*ERROR*\_ is a binary automatic variable, you need to
+    write additional codes to sum up .
+    
 [Chapter 6 , Problem 6]
 - Question (SK): When does LINES or CARDS  statements are used in the last statement of a data step ? when both are alias of   DATALINE statement?
 - Answer: TBD
+
+- Question (WF): Why is it so important that the variables initially be set to missing?
+- Answer (WF): SAS must have some character to display for missing, it won't allow no character.
+
+
 
 ## Chapter 7 Questions
 
