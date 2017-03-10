@@ -170,24 +170,17 @@ Then to modify the column size, use a *PROC SQL* statement:
 -   Question (WF): How would you create a new variable and then subset
     based off of that variable? Is it possible to do in one data block?
 -   Answer (WF):
-
-> DATA auto;
->
-> INPUT make $ price mpg foreign;
->
-> DATALINES;
->
-> AMC 4099 22 0
-> Audi 6295 23 1
->
-> ;
->
-> set import;
->
-> where foreign = ‘1’
->
-> run;
-
+```SAS 
+        DATA auto;
+                INPUT make $ price mpg foreign;
+            DATALINES;
+            AMC 4099 22 0
+            Audi 6295 23 1
+            ; 
+                set import;
+                where foreign = ‘1’
+            run;
+```
 ## Chapter 6 Questions
 [Chapter 6, Problem 3]
 - Question (AS): What are the additional commands used to direct the DATA step not to execute for each record? What are the conditions in which we need to use such commands and what are the advantages? Can we give an example?
