@@ -99,5 +99,12 @@ The instructor will then review the pull request and make comments should furthe
 
 ## Chapter 19 Questions
 
+[Chapter 19, problem 7]
+- Question (SK): What is the difference between / and #n ? Which one is more preferable / or #n in order to read data value sequentially and no sequencially?
+- Answer : TBD
 
 ## Chapter 20 Questions
+
+[Chapter 20 , Problem 6]
+- Question (SK): Is it possible to get the calculations like summation or average of the data values in each iteration when using @@?
+- Answer: TBD
