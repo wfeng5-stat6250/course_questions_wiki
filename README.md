@@ -359,8 +359,15 @@ format, or label your variables all in that same procedure.
 ## Chapter 13 Questions
 \[Chapter 13, Problem 5\]
  - Question (IW): How do you convert a numeric date, eg: 01032020 to a SAS date?
- - Answer: TBD
+ - Answer (MS): no vonversion is required, you can specify the input date format, and output date format. this particular format is MMDDYY10.
  
+ ```SAS
+ 	data want;
+     		set have;
+     		SASdate = input(date,yymmdd10.);
+     		format SASDate mmddyy10.;
+	run;
+``` 
 ## Chapter 14 Questions
 
 
