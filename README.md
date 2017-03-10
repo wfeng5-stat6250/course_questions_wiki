@@ -344,9 +344,10 @@ format, or label your variables all in that same procedure.
 
 ## Chapter 12 Questions
 
-[Chapter 12, Problem 4]
- - Question (JG): What is the result of submitting the following program?
- ```SAS
+\[Chapter 12, Problem 4\]
+- Question (JG): What is the result of submitting the following program?
+
+```SAS
         data work.getobs5;
             obsnum=5;
             set company.usa(keep=manager payroll) point=obsnum;
@@ -356,7 +357,7 @@ format, or label your variables all in that same procedure.
 - Answer (IW): The above program use *POINT* option to access 5th observation and the new output will produce the dataset work.getobs5 that contains values for manager and payroll variables for the 5th observation from company.usa dataset.  
 
 ## Chapter 13 Questions
-[Chapter 13, Problem 5]
+\[Chapter 13, Problem 5\]
  - Question (IW): How do you convert a numeric date, eg: 01032020 to a SAS date?
  - Answer: TBD
  
@@ -375,8 +376,13 @@ format, or label your variables all in that same procedure.
 ## Chapter 17 Questions
 
 [Chapter 17, Problem 2]
-- Question (SK): If we are unfamilier with the SAS dataset how will we finf the formats and variable names of each dataset?
-- Answer : TBD
+- Question (SK): If we are unfamiliar with the SAS dataset how will we find the formats and variable names of each dataset?
+- Answer (IW): Using the Holiday dataset in SAS, use *PROC CONTENTS* statement to review variable names and format:
+```SAS
+    proc contents data = sashelp.holiday
+	    out = data_info(keep=name type length format);
+    run;
+```
 
 ## Chapter 19 Questions
 
