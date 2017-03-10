@@ -100,6 +100,23 @@ The instructor will then review the pull request and make comments should furthe
 - Answer(BP) When the program is processed, it creates the SAS data set. The DATA step produces messages in the SAS log, but it does not create a report or other output.
 
 ## Chapter 5 Questions
+\[Chapter 5, Problem 1\]
+-   Question (WF): Why the format here is ".dat"?
+-   Answer (WF): “dat” file extension here only indicates that’s a data
+    file, it can be text or csv.
+    
+\[Chapter 5, Problem 2\]
+-   Question (WF): Once a fileref is assigned to an external file, can
+    the fileref be saved and utilized in other SAS sessions? 
+-   Answer (WF): File Shortcuts are active only during the current
+    SAS session. 
+    
+\[Chapter 5, Problem 6\]
+-   Question (WF): Where to define the name/position for Infile command?
+-   Answer (WF): The FILENAME option defines a variable, whose name you
+    supply, that SAS sets to the value of the physical name of the
+    currently open input data set.
+   
 [Chapter 5, Problem 7]
 - Question (AS): How to read a raw data set in which each observation's data values are on two lines?
 - Answer (AS): SAS provides the slash (/) and #n to handle cases where more than one record in the input file is required to compose one observation in the dataset. When SAS encounters a slash, it continues to read values till end of Input statement. Then writes the PDV out as one observation. The slash is a relative line pointer and #n is a specifc line pointer.
@@ -133,7 +150,37 @@ Then to modify the column size, use a *PROC SQL* statement:
         quit;
 ```
 
+-   Question (WF): Why is StockNumber read in as a character instead of
+    a numeric type?
+-   Answer (WF): Stock Number is a name, not a numeric value that
+    requires calculation.
+    
+-   Question (WF): With the Price variable, can a $ be used to identify
+    the variable?
+-   Answer (WF): Numeric variable can only contain number(s), not any
+    other character.
+    
+-   Question (WF): Would the "data" and "run" portions of the statement
+    also need to be included for this to run properly or is it complete
+    on its own?
+-   Answer (WF): The RUN statement is the last statement in a DATA
+    Step and indicates to SAS that the step is complete and can now be
+    run.\[Ch 5, Q8\]
 
+-   Question (WF): How would you create a new variable and then subset
+    based off of that variable? Is it possible to do in one data block?
+-   Answer (WF):
+```SAS 
+        DATA auto;
+                INPUT make $ price mpg foreign;
+            DATALINES;
+            AMC 4099 22 0
+            Audi 6295 23 1
+            ; 
+                set import;
+                where foreign = ‘1’
+            run;
+```
 ## Chapter 6 Questions
 [Chapter 6, Problem 3]
 - Question (AS): What are the additional commands used to direct the DATA step not to execute for each record? What are the conditions in which we need to use such commands and what are the advantages? Can we give an example?
