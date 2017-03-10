@@ -259,7 +259,50 @@ Then to modify the column size, use a *PROC SQL* statement:
 
 
 ## Chapter 8 Questions
+\[Chapter 8, Problem 1\]
+- Question (WF): Is it possible to create a stem-leaf display? 
+- Answer (WF): Using The PROC UNIVARIATE statement.
 
+- Question (WF): Does the raw data need to be totally clean before performing PROC statements?
+- Answer (WF): No PROC step can also take actions when errors occur, but it is highly recommended to clean up data set in DATA step.
+
+\[Chapter 8, Problem 4\]
+- Question (WF): Is there any difference in the data output that would make either CLASS or BY a better choice, or is it simply a matter of ease and organization?
+- Answer (WF): The input dataset must be sorted by the BY variables. It doesn't have to be sorted by the CLASS variables. The MEANS procedure is more efficient at treating BY groups than CLASS groups.
+
+- Question (WF): When using BY with PROC SUMMARY should SORT need to be used first as well?
+- Answer (WF): Yes.
+
+\[Chapter 8, Problem 7\]
+- Question (WF): How do you return a single ratio value from the sum of two columns? 
+- Answer (WF):
+
+```SAS
+    DATA have;
+         input COL1 COL2;
+    DATALINE;
+    2 4
+    5 6
+    ;
+     run;
+    PROC SORT data=have; 
+        by COL1; 
+    run;
+    PROC MEAN data=have noprint;
+        by COL1;
+    output ratio=COL1/(COL1+COL2) out=want (drop = \_type\_ \_freq\_);
+     run;
+    proc print data=want;
+    run;
+```
+\[Chapter 8, Problem 8\]
+- Question (WF): What's the best way to work on continuous values, numeric values and unique values? Maybe to sort the data first before perform the frequency distribution? 
+- Answer (WF): Recommended. By using PROC SORT, you can also do things like create a new data set, subset your data, rename, drop, keep,
+format, or label your variables all in that same procedure.
+
+\[Chapter 8, problem 10\]
+- Question (WF): Does memory can impact when we use multiple PROC freq command to generate cross-tabulations.
+- Answer (WF): Yes, The system option MEMSIZE sets a limit on the amount of memory used by the SAS System. The memory size impact SAS program performance in general.
 
 ## Chapter 10 Questions
 
