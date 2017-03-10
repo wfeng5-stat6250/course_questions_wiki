@@ -23,18 +23,60 @@ The instructor will then review the pull request and make comments should furthe
 [Chapter 1, Problem 1]
 - Question (SK): Is indentation  crucial in SAS or it is just for readability? If not then why does some programs gives error because of wrong indentation?
 - Answer (SK): Writing codes with proper indent is a best practice for programming.
+- Question (WF): Does SAS make the distinction between a variable and an array?
+- Answer (WF): array is a set of variables grouped together for the duration of a data step by being given a name in an ARRAY statement.
+- Question (WF): Is it possible to have a completely empty
+    observation? Would there be any reason to allow this?
+- Answer (WF): It’s possible to create an empty dataset by stopping
+    process before output.
+
+\[Chapter 1, Problem 3\]
+- Question (WF): Can a variable's type be both character and numeric?
+- Answer (WF): No, a variable can be numeric or character. Numeric values represent numbers, can be read in a variety of ways, and are stored in floating-point format. Character values can contain letters, numbers, and special characters and can be from 1 to 32,767 characters long.
+- Question (WF): Are there traditional variables found in SAS, variables without attributes?
+- Answer (WF): all variables have its own attributes.
+- Question (WF): In this problem, AcctNum appears like it should be set to a numeric type. What must be done to update it's type and correct the values? The first two need their underscores removed.'Romano' and 'Choi' are names, not account numbers.
+- Answer (WF): Once a variable is defined numeric or character, you cannot change it's data type, you must create a new variable.
+
+\[Chapter 1, Problem 5\]
+- Question (WF): Is there a maximum length for variables?
+- Answer (WF): default is 8 bytes for numeric and character.
+
+\[Chapter 1, Problem 8\]
+- Question (WF): Why was 8 bytes chosen? Is it efficient to store all variables with such a large precision?
+- Answer (WF): 8 bytes is 64bits, which most CPUs today are 64-bit architecture.
+
 
 ## Chapter 2 Questions
 
-[Chapter 2, Problem 7]
+\[Chapter 2, Problem 3\]
+- Question (WF): Is a file format engine a type of dataset?
+- Answer (WF): A library engine is an engine that accesses groups of files and puts them into a logical form for processing by SAS. It’s a set of code and instruction.
+- Question (WF): With 4 digit year values in data lines to be read correctly, does it mean that the YEARCUTOFF=option can be eliminated in the program data lines?
+- Answer (WF): yes.
+
+\[Chapter 2, Problem 7\]
 - Question (IL): What's the difference between starting a SAS program with "data" versus "proc", and why do both end types of programs end with the same "run" command, even though the bodies of the programs look nothing alike?
 - Answer (IL): SAS programs are divided into "steps", each step is either a data step or a proc step (as determined by the first word in the step), and all steps are typically terminated by a "run" statement. However, when using a "cards" or "dataline" statement in a data step, then the data step is terminated by a closing semicolon. In addition, some procs (like the interactive proc glm) are only terminated with a "quit" statement.
 - Question (SK): What is YEARCUTOFF= option? Why is this different in two year and four year naming conventions?
 - Answer (SK): The value of the YEARCUTOFF= system option affects only two-digit year values. A date value that contains a four-digit year value will be interpreted correctly even if it does not fall within the 100-year span set by the YEARCUTOFF= system option.
+- Question (WF): What is a libref? Can a libref be within a DATA, SET, or PROC statement?
+- Answer (WF): To create a new SAS library with SAS code, you use the LIBNAME statement. The LIBNAME statement associates the name of the library, or libref, with the physical location of the library. LIBNAME statement can be executed in bot DATA or PROC step.
+- Question (WF): Can I name a library with some key words like SPSS? 
+- Answer (WF): SAS reserves a few names for automatic variables and variable lists, SAS data sets, and librefs, such as WORK, SASHELPER, SASUSER...
 
-[Chapter 2, Problem 9]
+\[Chapter 2, Problem 8\]
+- Question (WF): How are namespace conflict issues resolved when two libraries are needed which have the same naming naming conventions and same names?
+- Answer (WF): SAS won’t allow to create or move a library at a location that has an existing library with the same name.
+- Question (WF): If a data set with two-digit year values has the range of the year more than 100, how to set YEARCUTOFF= value? how to process the year correctly?
+- Answer (WF): The YEARCUTOFF= option cannot reliably assign centuries to two-digit years if the range of dates for a variable is greater than 100 years. If the date ranges for a variable span more than 100 years, you must either specify the dates with 4-digit years, or use DATA step logic to assign a century to each year (perhaps based on the value of another variable).
+
+\[Chapter 2, Problem 9\]
 - Question (IL): What is a "libref", and how does it differ from a "LIBNAME"?  In particular, what fundamental distinction causes one to be written out in lower-case letters and the other in upper-case letters?
 - Answer (SG): A libname statement is the syntactical statement used to initiate a particular library. The libref is the actual syntax used to name it.
+- Question (WF):  How to reference a library which is also a data file? for example, libname rptdata spss 'g:\\myspss.spss';
+- Answer (WF): libname xdb excel "c:\\mymachine\\pcfdata\\demo.xlsx";
+
 
 ## Chapter 3 Questions
 - Question (AS): Is there a way to print out the values of certain variables during debugging i.e. equivalent of a print statement?
