@@ -89,6 +89,7 @@ The instructor will then review the pull request and make comments should furthe
 
 
 ## Chapter 3 Questions
+[Chapter 3, General Question]
 - Question (AS): Is there a way to print out the values of certain variables during debugging i.e. equivalent of a print statement?
 - Answer: TBD
 
