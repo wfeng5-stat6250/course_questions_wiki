@@ -93,7 +93,37 @@ The instructor will then review the pull request and make comments should furthe
 - Answer: TBD
 
 ## Chapter 4 Questions
-[Chapter 4, Problem 10]
+
+\[Chapter 4, Problem 1\]
+
+- Question (WF): Are English date formats the only formats SAS processes/produces? 
+- Answer (WF): No, you can use “OPTIONS DATESTYLE=mdy; “ (or YDM, or YMD, or DMY…) to change date format.
+
+- Question (WF): When do we want to make a label instead of just using them as a variable? Is it when for the convenience of the variables?
+- Answer (WF): Using a LABEL statement in a DATA step permanently associates labels with variables by affecting the descriptor information of the SAS data set that contains the variables. 
+
+\[Chapter 4, Problem 4\]
+- Question (WF): If you specify the same out=ref.name in your procs does it overwrite the previous values in that SAS data object? 
+- Answer (WF): Yes.
+
+- Question (WF): What to do when you have more than one variable to be sorted? Does it still through the BY statement?
+- Answer (WF):
+```SAS
+    PROC SORT statement option:
+        OUT=
+    BY statement
+```
+\[Chapter 4, Problem 7\]
+- Question (WF): Must you always have a data out in the proc signature? 
+- Answer (WF): The PROC Step or Procedure Step processes one (or more) data set(s) in some way to produce a result. This step is one of two types of SAS program steps, the other being a DATA Step, both are fundamental components of the SAS Language.
+
+\[Chapter 4, Problem 10\]
+- Question (WF): what’s to do if we want to remove columns or rows for the table that is not sorted through frequency?
+- Answer (WF): To remove observations in SAS, you can use the IF statement in a DATA step, search and remove matched observation. 
+
+- Question (WF): Can you specify triple spacing or more within the proc print statement?
+- Answer (WF): No, there is an only double space.
+
 - Question(BP): Can PROC PRINT default be changed for a session?
 - Answer(BP):DATA and PROC statements signal the beginning of a new step. When SAS encounters a subsequent DATA, PROC, or RUN statement (for DATA steps and most procedures) or a QUIT statement (for some procedures), SAS stops reading statements and executes the previous step in the program. In our sample program, each step ends with a RUN statement.
 - Question(BP): Does Data step statement produces output after executing Data step statement?
