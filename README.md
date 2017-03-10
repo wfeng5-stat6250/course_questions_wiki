@@ -248,8 +248,7 @@ Then to modify the column size, use a *PROC SQL* statement:
             stop;
         run;
 ```
-
- - Answer: TBD
+- Answer (IW): The above program use *POINT* option to access 5th observation and the new output will produce the dataset work.getobs5 that contains values for manager and payroll variables for the 5th observation from company.usa dataset.  
 
 ## Chapter 13 Questions
 [Chapter 13, Problem 5]
