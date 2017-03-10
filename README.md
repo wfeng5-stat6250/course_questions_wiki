@@ -92,6 +92,34 @@ The instructor will then review the pull request and make comments should furthe
 - Question (AS): Is there a way to print out the values of certain variables during debugging i.e. equivalent of a print statement?
 - Answer: TBD
 
+\[Chapter 3, Problem 1\]
+- Question (WF): Can DATA and PROC steps begin somewhere else other than column one? How about the RUN statement?
+- Answer (WF): SAS programs include two types of steps: DATA steps and PROC steps. DATA steps begin with the keyword DATA, and PROC steps begin with the keyword PROC. Therefore, DATA and PROC steps begin in column one.
+
+\[Chapter 3, Problem 3\]
+- Question (WF): When syntax errors like unbalanced quotation marks are in a program, can quotation marks be added and resubmit the program to fix the error?
+- Answer (WF): Yes, SAS program can be run or re-run by selecting a block of codes.
+
+- Question (WF): if we use "sum" command, does the "fee" have to be defined in the variable section? 
+- Answer (WF): “fee” is a variable in dataset clinic.stress.
+
+- Question (WF): What are some errors that SAS can correct automatically? 
+- Answer (WF): SAS does not correct error automatically, it find error for you.
+
+\[Chapter 3, Question 5\]
+- Question (WF): what happens if the data values are not appropriate for the SAS statements? Is there a way to convert the data? 
+- Answer (WF): SAS would write error message in the SAS log. You cannot convert variable data type.
+
+- Question (WF): what would happen if the elements were right but not valid for that usage? 
+- Answer (WF): You might be encountering run-time errors or getting wrong results.
+
+- Question (WF): what does it look like to have program statements that are not conformed to the rules of the SAS language?
+- Answer (WF): You would get syntax error.
+
+\[Chapter 3, Problem 7\]
+- Question (WF): What do you do to fix misspelled words in SAS statements?
+- Answer (WF): SAS is statistics, not word processing. You need to use an external spellchecker.
+
 ## Chapter 4 Questions
 
 \[Chapter 4, Problem 1\]
