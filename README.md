@@ -227,6 +227,9 @@ Then to modify the column size, use a *PROC SQL* statement:
 
 ## Chapter 7 Questions
 
+[Chapter 7 ,Problem 7]
+- Question (SK): Need to see an example using "OTHER" for missing numeric values in a proc format step?
+- Answer:TBD
 
 ## Chapter 8 Questions
 
@@ -264,9 +267,15 @@ Then to modify the column size, use a *PROC SQL* statement:
 
 ## Chapter 16 Questions
 
+[Chapter 16, Problem 5]
+- Question (SK): What does COMMAw.d work and how does it interpret parenthesis?
+- Answer (SK): The COMMAw.d informat does more than simply read the raw data values. It removes special characters such as    commas from numeric data and stores only numeric values in a SAS data set.
 
 ## Chapter 17 Questions
 
+[Chapter 17, Problem 2]
+- Question (SK): If we are unfamilier with the SAS dataset how will we finf the formats and variable names of each dataset?
+- Answer : TBD
 
 ## Chapter 19 Questions
 
