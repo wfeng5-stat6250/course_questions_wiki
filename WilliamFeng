@@ -1,49 +1,97 @@
-Chapter1
+**Chapter1**
 
-[Chapter 1, Problem 3] Can a variable's type be both character and numeric?
-Answer: No, a variable can be numeric or character. Numeric values represent numbers, can be read in a variety of ways, and are stored in floating-point format. Character values can contain letters, numbers, and special characters and can be from 1 to 32,767 characters long.
+1.  \[Chapter 1, Problem 3\] Can a variable's type be both character and
+    numeric?
 
-[Chapter 1, Problem 1] Does SAS make the distinction between a variable and an array?
-Answer: array is a set of variables grouped together for the duration of a data step by being given a name in an ARRAY statement.
+    Answer: No, a variable can be numeric or character. Numeric values
+    represent numbers, can be read in a variety of ways, and are stored
+    in floating-point format. Character values can contain letters,
+    numbers, and special characters and can be from 1 to 32,767
+    characters long.
 
-[Chapter 1, Problem 3] Are there traditional variables found in SAS, variables without attributes?
-Answer: all variables have its own attributes.
+2.  \[Chapter 1, Problem 1\] Does SAS make the distinction between a
+    variable and an array?
 
-[Chapter 1, Problem 5] Is there a maximum length for variables?
-Answer: default is 8 bytes for numeric and character.
+    Answer: array is a set of variables grouped together for the
+    duration of a data step by being given a name in an ARRAY statement.
 
-[Ch. 1, Q1] Is it possible to have a completely empty observation? Would there be any reason to allow this?
-Answer: It’s possible to create an empty dataset by stopping process before output.
+3.  \[Chapter 1, Problem 3\] Are there traditional variables found in
+    SAS, variables without attributes?
 
+    Answer: all variables have its own attributes.
 
-[Ch. 1, Q3] In this problem, AcctNum appears like it should be set to a numeric type. What must be done to update it's type and correct the values? The first two need their underscores removed. 'Romano' and 'Choi' are names, not account numbers.
-Answer: Once a variable is defined numeric or character, you cannot change it's data type, you must create a new variable.
+4.  \[Chapter 1, Problem 5\] Is there a maximum length for variables?
 
-[Ch. 1, Q8] Why was 8 bytes chosen? Is it efficient to store all variables with such a large precision?
-Answer: 8 bytes is 64bits, which most CPUs today are 64-bit architecture. 
+    Answer: default is 8 bytes for numeric and character.
 
-Chapter2
+5.  \[Ch. 1, Q1\] Is it possible to have a completely empty observation?
+    Would there be any reason to allow this?
 
-[Chapter 2, Problem 3] Is a file format engine a type of dataset?
-Answer: A library engine is an engine that accesses groups of files and puts them into a logical form for processing by SAS. It’s a set of code and instruction.
+    Answer: It’s possible to create an empty dataset by stopping process
+    before output.
 
+6.  \[Ch. 1, Q3\] In this problem, AcctNum appears like it should be set
+    to a numeric type. What must be done to update it's type and correct
+    the values? The first two need their underscores removed. 'Romano'
+    and 'Choi' are names, not account numbers.
 
-[Chapter 2, Problem 8] How are namespace conflict issues resolved when two libraries are needed which have the same naming naming conventions and same names?
-Answer: SAS won’t allow to create or move a library at a location that has an existing library with the same name.
+    Answer: Once a variable is defined numeric or character, you cannot
+    change it's data type, you must create a new variable.
 
-[Chapter 2, Problem 3] With 4 digit year values in data lines to be read correctly, does it mean that the YEARCUTOFF=option can be eliminated in the program data lines?
-Answer: yes.
+7.  \[Ch. 1, Q8\] Why was 8 bytes chosen? Is it efficient to store all
+    variables with such a large precision?
 
-[Chapter 2, Problem 7] What is a libref? Can a libref be within a DATA, SET, or PROC statement?
-Answer: To create a new SAS library with SAS code, you use the LIBNAME statement. The LIBNAME statement associates the name of the library, or libref, with the physical location of the library. LIBNAME statement can be executed in bot DATA or PROC step.
+    Answer: 8 bytes is 64bits, which most CPUs today are
+    64-bit architecture.
 
-[Chapter 2, Problem 7] Can I name a library with some key words like SPSS? 
-Answer: SAS reserves a few names for automatic variables and variable lists, SAS data sets, and librefs, such as WORK, SASHELPER, SASUSER…
+**Chapter2**
 
+1.  \[Chapter 2, Problem 3\] Is a file format engine a type of dataset?
 
- [Chapter 2, Problem 8] If a data set with two-digit year values has the range of the year more than 100, how to set YEARCUTOFF= value? how to process the year correctly?
-Answer: The YEARCUTOFF= option cannot reliably assign centuries to two-digit years if the range of dates for a variable is greater than 100 years. If the date ranges for a variable span more than 100 years, you must either specify the dates with 4-digit years, or use DATA step logic to assign a century to each year (perhaps based on the value of another variable). 
+    Answer: A library engine is an engine that accesses groups of files
+    and puts them into a logical form for processing by SAS. It’s a set
+    of code and instruction.
 
+2.  \[Chapter 2, Problem 8\] How are namespace conflict issues resolved
+    when two libraries are needed which have the same naming naming
+    conventions and same names?
 
-[Chapter 2, Problem 9]  How to reference a library which is also a data file ? for example, libname rptdata spss 'g:\myspss.spss';
-Answer: libname xdb excel "c:\mymachine\pcfdata\demo.xlsx";
+    Answer: SAS won’t allow to create or move a library at a location
+    that has an existing library with the same name.
+
+3.  \[Chapter 2, Problem 3\] With 4 digit year values in data lines to
+    be read correctly, does it mean that the YEARCUTOFF=option can be
+    eliminated in the program data lines?
+
+    Answer: yes.
+
+4.  \[Chapter 2, Problem 7\] What is a libref? Can a libref be within a
+    DATA, SET, or PROC statement?
+
+    Answer: To create a new SAS library with SAS code, you use the
+    LIBNAME statement. The LIBNAME statement associates the name of the
+    library, or libref, with the physical location of the library.
+    LIBNAME statement can be executed in bot DATA or PROC step.
+
+5.  \[Chapter 2, Problem 7\] Can I name a library with some key words
+    like SPSS? 
+
+    Answer: SAS reserves a few names for automatic variables and
+    variable lists, SAS data sets, and librefs, such as WORK, SASHELPER,
+    SASUSER…
+
+6.  \[Chapter 2, Problem 8\] If a data set with two-digit year values
+    has the range of the year more than 100, how to set YEARCUTOFF=
+    value? how to process the year correctly?
+
+    Answer: The YEARCUTOFF= option cannot reliably assign centuries
+    to two-digit years if the range of dates for a variable is greater
+    than 100 years. If the date ranges for a variable span more than 100
+    years, you must either specify the dates with 4-digit years, or use
+    DATA step logic to assign a century to each year (perhaps based on
+    the value of another variable). 
+
+7.  \[Chapter 2, Problem 9\]  How to reference a library which is also a
+    data file ? for example, libname rptdata spss 'g:\\myspss.spss';
+
+    Answer: libname xdb excel "c:\\mymachine\\pcfdata\\demo.xlsx";
