@@ -173,18 +173,12 @@ Then to modify the column size, use a *PROC SQL* statement:
 
 > DATA auto;
 >
-> INPUT make $ price mpg rep78 foreign; cost = ROUND ( price / 1000 );
-> mpgptd = mpg / price;
+> INPUT make $ price mpg foreign;
 >
 > DATALINES;
 >
-> AMC 4099 22 3 0
->
-> AMC 4749 17 3 0
->
-> Audi 9690 . 5 1
->
-> Audi 6295 23 3 1
+> AMC 4099 22 0
+> Audi 6295 23 1
 >
 > ;
 >
