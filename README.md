@@ -402,6 +402,42 @@ keeps the specified variables when it writes to the output data set.
 ```
 - Answer (IW): The above program use *POINT* option to access 5th observation and the new output will produce the dataset work.getobs5 that contains values for manager and payroll variables for the 5th observation from company.usa dataset.  
 
+\[Chapter 12, Problem 1\]
+- Question (WF): What situations is one-to-one matching needed since we have merge? 
+- Answer (WF): In cases where you must merge certain observations, use a match-merge. For example, when merging employee information from two different data sets, it is crucial that you merge observations that relate to the same employee. Therefore, you must use a match-merge.
+
+- Question (WF):  In 1-to-1 merging, why do same-named variables have the 2nd data set to cover while the 1st data set information does not have anything to do with the 2nd data set?
+- Answer (WF): This example is a case of one-to-one matching, which requires multiple SET statements. Where same-named variables occur, values that are read from the second data set replace those read from the first data set. Also, the number of observations in the new data set is the number of observations in the smallest original data set.
+
+- Question (WF): Can we track how many values are discarded for 1-to-1 merging with a variable?
+- Answer (WF): In this case, it’s new dataset minus second dataset.
+
+\[Chapter 12, Problem 2\]
+- Question (WF): What are the pros and cons of indexing compared to sorting data for a merge?
+- Answer (WF): If the data is sorted, the code that creates the index does not have to search for the correct place to store the new value, which consumes extra I/O and CPU resources. If an index is built with unsorted data, it might be larger than an index that is built with sorted data because all the pages might not be full. Sorting the data takes extra time, but generally results in a more compact index that builds faster.
+
+\[Chapter 12, Problem 4\]
+- Question (WF): If the variable types differ in the datasets to be concatenated, how can they be modified?
+- Answer (WF): Using rename option to temporarily rename a variable when doing merge. For example:
+```SAS
+		data new;
+			merge a b (rename=(pin=id));
+			by id;
+		run;
+```
+\[Chapter 12, Problem 9\]
+- Question (WF): What should be done when there are more observations in the BY group but less values for variables?
+- Answer (WF): Some of the observations might be duplicated records.
+
+- Question (WF): If the dataset is large, how do I know how many observations are supposed to generate?
+- Answer (WF): Here is a sample code to count observations in dataset:
+```SAS
+		data _null_;
+			set test end=eof;
+			count+1;
+			if eof then call symput("nobs",count);
+		run;
+```
 ## Chapter 13 Questions
 \[Chapter 13, Problem 5\]
  - Question (IW): How do you convert a numeric date, eg: 01032020 to a SAS date?
