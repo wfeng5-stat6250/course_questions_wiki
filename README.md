@@ -290,6 +290,32 @@ Then to modify the column size, use a *PROC SQL* statement:
 - Question (SK): Need to see an example using "OTHER" for missing numeric values in a proc format step?
 - Answer:TBD
 
+\[Chapter 7, Problem 3\]
+- Question (WF): How can SAS version 9 and above be backwards compatible if format-names may now be up to 32 characters?
+- Answer (WF): SAS version prior 9 support format names up to 8 characters, and the version 9 supports format names up to 32. “Up to” means any number between 1 to 32.
+
+- Question (WF): Is it necessary to establish a catalog for formats in the library? Or is that not necessary when using a value statement?
+- Answer (WF): Not necessary. If you plan to use a customized informat or format repeatedly, you can store it permanently in a "formats catalog" by using the LIBRARY= option in the PROC FORMAT statement. Basically, the LIBRARY= option tells SAS where the formats catalog is (to be) stored.
+
+\[Chapter 7, Problem 4\]
+- Question (WF): Why is a library.catalog not used here?
+- Answer (WF): LIBRARY=libref names the library that the procedure processes. This library is the procedure input library.
+
+- Question (WF): Creating value/name pairs is it possible to lookup values by label name?
+- Answer (WF): Labels can be used to improve both the efficiency and quality of the SAS output. It’s not designed for value searching.
+
+\[Chapter 7, Problem 6\]
+- Question (WF): Why are labels unrestricted in size (i.e. relatively so) when compared to SAS variable lengths?
+- Answer (WF): Label add value to the user and make it more efficient and flexible to program. It’s not designed to hold value.
+
+\[Chapter 7, Problem 7\]
+- Question (WF): Is there a single one place where one can go to have the equivalent of a 'JavaDoc' for SAS?
+- Answer (WF): DocItOut (formerly SASDoc).
+
+\[Chapter 7, Question 8\]
+- Question (WF): What happens if place FORMAT statement in a PROC step?
+- Answer (WF): You can put a format statement in a proc step so that the variable has a different format for the output you produce in the proc step. This will not change the format of the variable in the dataset.
+
 ## Chapter 8 Questions
 \[Chapter 8, Problem 1\]
 - Question (WF): Is it possible to create a stem-leaf display? 
