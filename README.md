@@ -38,11 +38,31 @@ The instructor will then review the pull request and make comments should furthe
 - Question (IL): What is a "libref", and how does it differ from a "LIBNAME"?  In particular, what fundamental distinction causes one to be written out in lower-case letters and the other in upper-case letters?
 - Answer (SG): A libname statement is the syntactical statement used to initiate a particular library. The libref is the actual syntax used to name it.
 
+[Chapter 2, Problem 3]
+- Question (AS): Does YEACUTOFF= option also affect how data is interpreted while writing into and creating a new
+   data set or only while reading in from an existing data set ?
+- Answer: TBD
+
+[Chapter 2, Problem 9]
+- Question (AS): Can one sas library(folder) contain both SAS native format and external file types ? Does SAS 
+automatically determine if/when to use the extra 'engine' parameter in the libname statement to use 
+for reading the non-SAS file ?
+- Answer: TBD
+
+[Chapter 2, Problem 9]
+- Question (AS): what statement is used to delete a libref within a SAS program? opposite of LIBNAME?
+- Answer: TBD
+
 ## Chapter 3 Questions
+[Chapter 1, Problem 1]
 - Question (AS): Is there a way to print out the values of certain variables during debugging i.e. equivalent of a print statement?
 - Answer: TBD
 
+
 ## Chapter 4 Questions
+[Chapter 4, Problem 7]
+- Question (AS): In this example, SAS continues to print even though sort fails. Is there a way to force SAS to halt processing if any intermediate steps fail ?
+- Answer: TBD
 
 
 ## Chapter 5 Questions
@@ -51,6 +71,7 @@ The instructor will then review the pull request and make comments should furthe
 - Answer (AS): SAS provides the slash (/) and #n to handle cases where more than one record in the input file is required to compose one observation in the dataset. When SAS encounters a slash, it continues to read values till end of Input statement. Then writes the PDV out as one observation. The slash is a relative line pointer and #n is a specifc line pointer.
 - Question (SK): Is there a way we can change the columns name and its size once we defined them ? How can we delete a column or reduce its size?
 - Answer: TBD
+
 
 ## Chapter 6 Questions
 [Chapter 6, Problem 3]
@@ -61,11 +82,22 @@ The instructor will then review the pull request and make comments should furthe
 - Question (SK): When does LINES or CARDS  statements are used in the last statement of a data step ? when both are alias of   DATALINE statement?
 - Answer (SK): TBD
 
+[Chapter 6, Problem 7]
+- Question (AS): typically, is the metadata related to the position of the columns in data file provided/available ? Would it not be tedious to create the input statement for datasets with large number of attributes? Are there any general purpose utilities available to do this task of parsing sample data to create input statements ?
+- Answer: TBD
+
+
 ## Chapter 7 Questions
 
 
 ## Chapter 8 Questions
+[Chapter 8, Problem 2]
+- Question (AS): there is also statistic named 'VAR' for variance ? does this cause SAS issues ?
+- Answer: TBD
 
+[Chapter 8, Problem 7]
+- Question (AS): in relation to proc frequency, what are 'categorical values' ?
+- Answer: TBD
 
 ## Chapter 10 Questions
 
