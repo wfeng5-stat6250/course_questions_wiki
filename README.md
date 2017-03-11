@@ -89,11 +89,70 @@ The instructor will then review the pull request and make comments should furthe
 
 
 ## Chapter 3 Questions
+[Chapter 3, General Question]
 - Question (AS): Is there a way to print out the values of certain variables during debugging i.e. equivalent of a print statement?
 - Answer: TBD
 
+\[Chapter 3, Problem 1\]
+- Question (WF): Can DATA and PROC steps begin somewhere else other than column one? How about the RUN statement?
+- Answer (WF): SAS programs include two types of steps: DATA steps and PROC steps. DATA steps begin with the keyword DATA, and PROC steps begin with the keyword PROC. Therefore, DATA and PROC steps begin in column one.
+
+\[Chapter 3, Problem 3\]
+- Question (WF): When syntax errors like unbalanced quotation marks are in a program, can quotation marks be added and resubmit the program to fix the error?
+- Answer (WF): Yes, SAS program can be run or re-run by selecting a block of codes.
+
+- Question (WF): if we use "sum" command, does the "fee" have to be defined in the variable section? 
+- Answer (WF): “fee” is a variable in dataset clinic.stress.
+
+- Question (WF): What are some errors that SAS can correct automatically? 
+- Answer (WF): SAS does not correct error automatically, it find error for you.
+
+\[Chapter 3, Question 5\]
+- Question (WF): what happens if the data values are not appropriate for the SAS statements? Is there a way to convert the data? 
+- Answer (WF): SAS would write error message in the SAS log. You cannot convert variable data type.
+
+- Question (WF): what would happen if the elements were right but not valid for that usage? 
+- Answer (WF): You might be encountering run-time errors or getting wrong results.
+
+- Question (WF): what does it look like to have program statements that are not conformed to the rules of the SAS language?
+- Answer (WF): You would get syntax error.
+
+\[Chapter 3, Problem 7\]
+- Question (WF): What do you do to fix misspelled words in SAS statements?
+- Answer (WF): SAS is statistics, not word processing. You need to use an external spellchecker.
+
 ## Chapter 4 Questions
-[Chapter 4, Problem 10]
+
+\[Chapter 4, Problem 1\]
+
+- Question (WF): Are English date formats the only formats SAS processes/produces? 
+- Answer (WF): No, you can use “OPTIONS DATESTYLE=mdy; “ (or YDM, or YMD, or DMY…) to change date format.
+
+- Question (WF): When do we want to make a label instead of just using them as a variable? Is it when for the convenience of the variables?
+- Answer (WF): Using a LABEL statement in a DATA step permanently associates labels with variables by affecting the descriptor information of the SAS data set that contains the variables. 
+
+\[Chapter 4, Problem 4\]
+- Question (WF): If you specify the same out=ref.name in your procs does it overwrite the previous values in that SAS data object? 
+- Answer (WF): Yes.
+
+- Question (WF): What to do when you have more than one variable to be sorted? Does it still through the BY statement?
+- Answer (WF):
+```SAS
+    PROC SORT statement option:
+        OUT=
+    BY statement
+```
+\[Chapter 4, Problem 7\]
+- Question (WF): Must you always have a data out in the proc signature? 
+- Answer (WF): The PROC Step or Procedure Step processes one (or more) data set(s) in some way to produce a result. This step is one of two types of SAS program steps, the other being a DATA Step, both are fundamental components of the SAS Language.
+
+\[Chapter 4, Problem 10\]
+- Question (WF): what’s to do if we want to remove columns or rows for the table that is not sorted through frequency?
+- Answer (WF): To remove observations in SAS, you can use the IF statement in a DATA step, search and remove matched observation. 
+
+- Question (WF): Can you specify triple spacing or more within the proc print statement?
+- Answer (WF): No, there is an only double space.
+
 - Question(BP): Can PROC PRINT default be changed for a session?
 - Answer(BP):DATA and PROC statements signal the beginning of a new step. When SAS encounters a subsequent DATA, PROC, or RUN statement (for DATA steps and most procedures) or a QUIT statement (for some procedures), SAS stops reading statements and executes the previous step in the program. In our sample program, each step ends with a RUN statement.
 - Question(BP): Does Data step statement produces output after executing Data step statement?
@@ -232,30 +291,119 @@ Then to modify the column size, use a *PROC SQL* statement:
 - Answer:TBD
 
 ## Chapter 8 Questions
+\[Chapter 8, Problem 1\]
+- Question (WF): Is it possible to create a stem-leaf display? 
+- Answer (WF): Using The PROC UNIVARIATE statement.
 
+- Question (WF): Does the raw data need to be totally clean before performing PROC statements?
+- Answer (WF): No PROC step can also take actions when errors occur, but it is highly recommended to clean up data set in DATA step.
+
+\[Chapter 8, Problem 4\]
+- Question (WF): Is there any difference in the data output that would make either CLASS or BY a better choice, or is it simply a matter of ease and organization?
+- Answer (WF): The input dataset must be sorted by the BY variables. It doesn't have to be sorted by the CLASS variables. The MEANS procedure is more efficient at treating BY groups than CLASS groups.
+
+- Question (WF): When using BY with PROC SUMMARY should SORT need to be used first as well?
+- Answer (WF): Yes.
+
+\[Chapter 8, Problem 7\]
+- Question (WF): How do you return a single ratio value from the sum of two columns? 
+- Answer (WF):
+
+```SAS
+    DATA have;
+         input COL1 COL2;
+    DATALINE;
+    2 4
+    5 6
+    ;
+     run;
+    PROC SORT data=have; 
+        by COL1; 
+    run;
+    PROC MEAN data=have noprint;
+        by COL1;
+    output ratio=COL1/(COL1+COL2) out=want (drop = \_type\_ \_freq\_);
+     run;
+    proc print data=want;
+    run;
+```
+\[Chapter 8, Problem 8\]
+- Question (WF): What's the best way to work on continuous values, numeric values and unique values? Maybe to sort the data first before perform the frequency distribution? 
+- Answer (WF): Recommended. By using PROC SORT, you can also do things like create a new data set, subset your data, rename, drop, keep,
+format, or label your variables all in that same procedure.
+
+\[Chapter 8, problem 10\]
+- Question (WF): Does memory can impact when we use multiple PROC freq command to generate cross-tabulations.
+- Answer (WF): Yes, The system option MEMSIZE sets a limit on the amount of memory used by the SAS System. The memory size impact SAS program performance in general.
 
 ## Chapter 10 Questions
 
 
 ## Chapter 11 Questions
 
+\[Chapter 11, Problem 1\]
+
+- Question (WF): What happens if there was no subset data, the DROP= and KEEP= options are switched in the DATA/SET statements, and variable "weight" has been eliminated?
+- Answer (WF): The** DROP=** option tells SAS which variables you want to *drop from* a data set. If you place the **DROP=** option on the SET statement, SAS drops the specified variables when it reads the input data set. On the other hand, if you place the **DROP=** option on the DATA statement, SAS drops the specified variables when it writes to the output data set.
+
+The** KEEP=** option tells SAS which variables you want to *keep in* a
+data set. If you place the **KEEP=** option on the SET statement, SAS
+keeps the specified variables when it reads the input data set. On the
+other hand, if you place the **KEEP=** option on the DATA statement, SAS
+keeps the specified variables when it writes to the output data set.
+
+\[Chapter 11 problem 2\]
+- Question (WF): For creating a new SAS dataset, can we use more than two dataset in set statement?  
+- Answer (WF): Yes, by using MERGE statement.
+
+\[Chapter 11, Problem 3\]: 
+- Question (WF): Is there away to print out the FIRST. and LAST. observation within the dataset?
+- Answer (WF):
+```SAS
+		DATA data2;
+			Set data1;
+			By id;
+			If first.id or last.id;
+		run;
+		PROC PRINT data=data2;
+		run;
+```
+\[Chapter 11 problem 3\]
+- Question (WF): Can we create a new variable within a new dataset that is different from the one in set statement?  
+- Answer (WF): Yes, here is an example:
+```SAS
+		DATA new\_data;
+			SET old\_data;
+			new\_var1 = "A";
+			new\_var2 = 3;
+		RUN;
+```
+- Question (WF): What is the affect on resources, when proc sort is used as compare to " BY "statement in data step?  
+- Answer (WF): Sorting a data set is required when using a BY statement in a procedure, and sorting is a common and resource-intensive component of SAS. Therefore, the impact on resource would be similar.
+
+\[Chapter 11, Problem 8\]
+- Question (WF): Can an END= option have any observation in a data set and not only last?
+- Answer (WF): Yes, use the END= option on a SET statement to determine the last observation of your choice in the data set.
+
+- Question (WF): END= and POINT= are very similar, why END is to name a variable, but POINT is to get a value from the variable? 
+- Answer (WF): POINT statement specifies a temporary variable whose numeric value determines which observation is read. POINT= causes the SET statement to use random (direct) access to read a SAS data set.
 
 ## Chapter 12 Questions
 
-[Chapter 12, Problem 4]
- - Question (JG): What is the result of submitting the following program?
- ```SAS
+\[Chapter 12, Problem 4\]
+- Question (JG): What is the result of submitting the following program?
+
+```SAS
         data work.getobs5;
             obsnum=5;
             set company.usa(keep=manager payroll) point=obsnum;
             stop;
         run;
 ```
-
- - Answer: TBD
+- Answer (IW): The above program use *POINT* option to access 5th observation and the new output will produce the dataset work.getobs5 that contains values for manager and payroll variables for the 5th observation from company.usa dataset.  
 
 ## Chapter 13 Questions
-[Chapter 13, Problem 5]
+\[Chapter 13, Problem 5\]
  - Question (IW): How do you convert a numeric date, eg: 01032020 to a SAS date?
  - Answer: TBD
  
@@ -274,8 +422,13 @@ Then to modify the column size, use a *PROC SQL* statement:
 ## Chapter 17 Questions
 
 [Chapter 17, Problem 2]
-- Question (SK): If we are unfamilier with the SAS dataset how will we finf the formats and variable names of each dataset?
-- Answer : TBD
+- Question (SK): If we are unfamiliar with the SAS dataset how will we find the formats and variable names of each dataset?
+- Answer (IW): Using the Holiday dataset in SAS, use *PROC CONTENTS* statement to review variable names and format:
+```SAS
+    proc contents data = sashelp.holiday
+	    out = data_info(keep=name type length format);
+    run;
+```
 
 ## Chapter 19 Questions
 
