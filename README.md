@@ -288,7 +288,16 @@ Then to modify the column size, use a *PROC SQL* statement:
 
 [Chapter 7 ,Problem 7]
 - Question (SK): Need to see an example using "OTHER" for missing numeric values in a proc format step?
-- Answer:TBD
+- Answer (IW): The *OTHER* includes all ages not listed in teams 20 & below and between 20 to 40, and all missing ages, unless missing values are accounted for with . = 'Missing'.
+```SAS
+	proc format;
+  		value age 
+			low -< 20 = "team 1"
+			21 -< 40 = "team 2"
+			other = "undefined";
+	run;
+```
+
 
 ## Chapter 8 Questions
 \[Chapter 8, Problem 1\]
