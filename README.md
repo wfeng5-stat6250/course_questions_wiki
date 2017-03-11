@@ -341,6 +341,52 @@ format, or label your variables all in that same procedure.
 
 ## Chapter 11 Questions
 
+\[Chapter 11, Problem 1\]
+
+- Question (WF): What happens if there was no subset data, the DROP= and KEEP= options are switched in the DATA/SET statements, and variable "weight" has been eliminated?
+- Answer (WF): The** DROP=** option tells SAS which variables you want to *drop from* a data set. If you place the **DROP=** option on the SET statement, SAS drops the specified variables when it reads the input data set. On the other hand, if you place the **DROP=** option on the DATA statement, SAS drops the specified variables when it writes to the output data set.
+
+The** KEEP=** option tells SAS which variables you want to *keep in* a
+data set. If you place the **KEEP=** option on the SET statement, SAS
+keeps the specified variables when it reads the input data set. On the
+other hand, if you place the **KEEP=** option on the DATA statement, SAS
+keeps the specified variables when it writes to the output data set.
+
+\[Chapter 11 problem 2\]
+- Question (WF): For creating a new SAS dataset, can we use more than two dataset in set statement?  
+- Answer (WF): Yes, by using MERGE statement.
+
+\[Chapter 11, Problem 3\]: 
+- Question (WF): Is there away to print out the FIRST. and LAST. observation within the dataset?
+- Answer (WF):
+```SAS
+		DATA data2;
+			Set data1;
+			By id;
+			If first.id or last.id;
+		run;
+		PROC PRINT data=data2;
+		run;
+```
+\[Chapter 11 problem 3\]
+- Question (WF): Can we create a new variable within a new dataset that is different from the one in set statement?  
+- Answer (WF): Yes, here is an example:
+```SAS
+		DATA new\_data;
+			SET old\_data;
+			new\_var1 = "A";
+			new\_var2 = 3;
+		RUN;
+```
+- Question (WF): What is the affect on resources, when proc sort is used as compare to " BY "statement in data step?  
+- Answer (WF): Sorting a data set is required when using a BY statement in a procedure, and sorting is a common and resource-intensive component of SAS. Therefore, the impact on resource would be similar.
+
+\[Chapter 11, Problem 8\]
+- Question (WF): Can an END= option have any observation in a data set and not only last?
+- Answer (WF): Yes, use the END= option on a SET statement to determine the last observation of your choice in the data set.
+
+- Question (WF): END= and POINT= are very similar, why END is to name a variable, but POINT is to get a value from the variable? 
+- Answer (WF): POINT statement specifies a temporary variable whose numeric value determines which observation is read. POINT= causes the SET statement to use random (direct) access to read a SAS data set.
 
 ## Chapter 12 Questions
 
