@@ -27,10 +27,8 @@ The instructor will then review the pull request and make comments should furthe
 - Question (WF): Does SAS make the distinction between a variable and an array?
 - Answer (WF): array is a set of variables grouped together for the duration of a data step by being given a name in an ARRAY statement.
 
-- Question (WF): Is it possible to have a completely empty
-    observation? Would there be any reason to allow this?
-- Answer (WF): It’s possible to create an empty dataset by stopping
-    process before output.
+- Question (WF): Is it possible to have a completely empty observation? Would there be any reason to allow this?
+- Answer (WF): It’s possible to create an empty dataset by stopping process before output.
     
 - Question (AS): Is there a way to print out the values of certain variables during debugging i.e. equivalent of a print statement?
 - Answer: TBD
@@ -52,7 +50,8 @@ The instructor will then review the pull request and make comments should furthe
 \[Chapter 1, Problem 8\]
 - Question (WF): Why was 8 bytes chosen? Is it efficient to store all variables with such a large precision?
 - Answer (WF): 8 bytes is 64bits, which most CPUs today are 64-bit architecture.
-
+- Question (AP):Can we configure the default length for the variable types? How?
+- Answer(AP):We can configure the default length for variables using the length statement. General format is LENGTH variable-list $ number-of-bytes;
 
 ## Chapter 2 Questions
 
@@ -70,15 +69,8 @@ The instructor will then review the pull request and make comments should furthe
 \[Chapter 2, Problem 7\]
 - Question (IL): What's the difference between starting a SAS program with "data" versus "proc", and why do both end types of programs end with the same "run" command, even though the bodies of the programs look nothing alike?
 - Answer (IL): SAS programs are divided into "steps", each step is either a data step or a proc step (as determined by the first word in the step), and all steps are typically terminated by a "run" statement. However, when using a "cards" or "dataline" statement in a data step, then the data step is terminated by a closing semicolon. In addition, some procs (like the interactive proc glm) are only terminated with a "quit" statement.
-
-- Question (SK): What is YEARCUTOFF= option? Why is this different in two year and four year naming conventions?
-- Answer (SK): The value of the YEARCUTOFF= system option affects only two-digit year values. A date value that contains a four-digit year value will be interpreted correctly even if it does not fall within the 100-year span set by the YEARCUTOFF= system option.
-
-- Question (WF): What is a libref? Can a libref be within a DATA, SET, or PROC statement?
-- Answer (WF): To create a new SAS library with SAS code, you use the LIBNAME statement. The LIBNAME statement associates the name of the library, or libref, with the physical location of the library. LIBNAME statement can be executed in bot DATA or PROC step.
-
-- Question (WF): Can I name a library with some key words like SPSS? 
-- Answer (WF): SAS reserves a few names for automatic variables and variable lists, SAS data sets, and librefs, such as WORK, SASHELPER, SASUSER...
+- Question(AP):What are the kinds of statements that should go in the data and proc components of the SAS program?
+- Answer(AP): DATA step: Used to put external data into SAS data sets, create new data sets by merging, subsetting external data sets, compute values and check and correct errors in external data sets; PROC step: Analyse and process data from the sas data set, create reports, produce descriptive statistics etc
 
 \[Chapter 2, Problem 8\]
 - Question (WF): How are namespace conflict issues resolved when two libraries are needed which have the same naming naming conventions and same names?
@@ -96,6 +88,12 @@ The instructor will then review the pull request and make comments should furthe
 - Answer: TBD
 - Question (WF):  How to reference a library which is also a data file? for example, libname rptdata spss 'g:\\myspss.spss';
 - Answer (WF): libname xdb excel "c:\\mymachine\\pcfdata\\demo.xlsx";
+- Question (SK): What is YEARCUTOFF= option? Why is this different in two year and four year naming conventions?
+- Answer (SK): The value of the YEARCUTOFF= system option affects only two-digit year values. A date value that contains a four-digit year value will be interpreted correctly even if it does not fall within the 100-year span set by the YEARCUTOFF= system option.
+- Question (WF): What is a libref? Can a libref be within a DATA, SET, or PROC statement?
+- Answer (WF): To create a new SAS library with SAS code, you use the LIBNAME statement. The LIBNAME statement associates the name of the library, or libref, with the physical location of the library. LIBNAME statement can be executed in bot DATA or PROC step.
+- Question (WF): Can I name a library with some key words like SPSS? 
+- Answer (WF): SAS reserves a few names for automatic variables and variable lists, SAS data sets, and librefs, such as WORK, SASHELPER, SASUSER...
 
 ## Chapter 3 Questions
 [Chapter 3, General Questions]
@@ -115,6 +113,9 @@ The instructor will then review the pull request and make comments should furthe
 
 - Question (WF): What are some errors that SAS can correct automatically? 
 - Answer (WF): SAS does not correct error automatically, it find error for you.
+
+- Question (AP):The error continues to occur in other SAS programs if the statement is not canceled(unclosed quotation marks). So, when we find such errors in the log window how do we make sure it of the current SAS program and not some other program from the session
+- Answer(AP): Cancel all SAS statements, correct the error and run the SAS program again.
 
 \[Chapter 3, Question 5\]
 - Question (WF): what happens if the data values are not appropriate for the SAS statements? Is there a way to convert the data? 
