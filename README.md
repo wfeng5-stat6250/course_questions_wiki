@@ -126,6 +126,9 @@ The instructor will then review the pull request and make comments should furthe
 - Question (WF): what does it look like to have program statements that are not conformed to the rules of the SAS language?
 - Answer (WF): You would get syntax error.
 
+- Question (SK): What is the way to figure out,where the logic error is and how can we rectify it without knowing the error log?
+- Answer: TBD
+
 \[Chapter 3, Problem 7\]
 - Question (WF): What do you do to fix misspelled words in SAS statements?
 - Answer (WF): SAS is statistics, not word processing. You need to use an external spellchecker.
@@ -349,6 +352,10 @@ Then to modify the column size, use a *PROC SQL* statement:
     proc print data=want;
     run;
 ```
+
+- Question (SK): what is the default output of frequency procedure?
+- Answer (SK): The FREQ procedure is a descriptive procedure as well as a statistical procedure. It produces one-way and n-way frequency tables, and it concisely describes your data by reporting the distribution of variable values. You can use the FREQ procedure to create crosstabulation tables that summarize data for two or more categorical variables by showing the number of observations for each combination of variable values.
+
 - Question (AS): in relation to proc frequency, what are 'categorical values' ?
 - Answer: TBD
 
@@ -359,6 +366,9 @@ Then to modify the column size, use a *PROC SQL* statement:
 \[Chapter 8, problem 10\]
 - Question (WF): Does memory can impact when we use multiple PROC freq command to generate cross-tabulations.
 - Answer (WF): Yes, The system option MEMSIZE sets a limit on the amount of memory used by the SAS System. The memory size impact SAS program performance in general.
+
+- Question (SK): Does reversing the order of the variables in the TABLES statement would reverse their positions in the table?
+- Answer: TBD  
 
 ## Chapter 10 Questions
 
@@ -413,19 +423,6 @@ keeps the specified variables when it writes to the output data set.
 - Answer (WF): POINT statement specifies a temporary variable whose numeric value determines which observation is read. POINT= causes the SET statement to use random (direct) access to read a SAS data set.
 
 ## Chapter 12 Questions
-
-\[Chapter 12, Problem 4\]
-- Question (JG): What is the result of submitting the following program?
-
-```SAS
-        data work.getobs5;
-            obsnum=5;
-            set company.usa(keep=manager payroll) point=obsnum;
-            stop;
-        run;
-```
-- Answer (IW): The above program use *POINT* option to access 5th observation and the new output will produce the dataset work.getobs5 that contains values for manager and payroll variables for the 5th observation from company.usa dataset.  
-
 \[Chapter 12, Problem 1\]
 - Question (WF): What situations is one-to-one matching needed since we have merge? 
 - Answer (WF): In cases where you must merge certain observations, use a match-merge. For example, when merging employee information from two different data sets, it is crucial that you merge observations that relate to the same employee. Therefore, you must use a match-merge.
@@ -449,6 +446,21 @@ keeps the specified variables when it writes to the output data set.
 			by id;
 		run;
 ```
+- Question (JG): What is the result of submitting the following program?
+
+```SAS
+        data work.getobs5;
+            obsnum=5;
+            set company.usa(keep=manager payroll) point=obsnum;
+            stop;
+        run;
+```
+- Answer (IW): The above program use *POINT* option to access 5th observation and the new output will produce the dataset work.getobs5 that contains values for manager and payroll variables for the 5th observation from company.usa dataset.  
+
+[Chapter 12 Question 5]
+- Question (SK): What if the the same name variables have different value ? Will merging work in this case?
+- Answer (SK): If you have variables with the same name in more than one input data set, values of the same-named variable in the first data set in which it appears are overwritten by values of the same-named variable in subsequent data sets.
+
 \[Chapter 12, Problem 9\]
 - Question (WF): What should be done when there are more observations in the BY group but less values for variables?
 - Answer (WF): Some of the observations might be duplicated records.
@@ -462,6 +474,7 @@ keeps the specified variables when it writes to the output data set.
 			if eof then call symput("nobs",count);
 		run;
 ```
+
 ## Chapter 13 Questions
 \[Chapter 13, Problem 5\]
  - Question (IW): How do you convert a numeric date, eg: 01032020 to a SAS date?
@@ -494,7 +507,7 @@ keeps the specified variables when it writes to the output data set.
 
 [Chapter 19, problem 7]
 - Question (SK): What is the difference between / and #n ? Which one is more preferable / or #n in order to read data value sequentially and no sequencially?
-- Answer : TBD
+- Answer (SK): -The / line pointer control and the #n line pointer control can be combined within a SAS program to read multiple records both sequentially and non-sequentially.The first #n line pointer control enables you to read the values for each record where as The INPUT statement uses the / line pointer control to move the input pointer forward from the first record to the second record, and from the second record to the third record.
 
 ## Chapter 20 Questions
 
