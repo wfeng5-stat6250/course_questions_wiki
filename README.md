@@ -413,13 +413,7 @@ Then to modify the column size, use a *PROC SQL* statement:
 \[Chapter 11, Problem 1\]
 
 - Question (WF): What happens if there was no subset data, the DROP= and KEEP= options are switched in the DATA/SET statements, and variable "weight" has been eliminated?
-- Answer (WF): The** DROP=** option tells SAS which variables you want to *drop from* a data set. If you place the **DROP=** option on the SET statement, SAS drops the specified variables when it reads the input data set. On the other hand, if you place the **DROP=** option on the DATA statement, SAS drops the specified variables when it writes to the output data set.
-
-The** KEEP=** option tells SAS which variables you want to *keep in* a
-data set. If you place the **KEEP=** option on the SET statement, SAS
-keeps the specified variables when it reads the input data set. On the
-other hand, if you place the **KEEP=** option on the DATA statement, SAS
-keeps the specified variables when it writes to the output data set.
+- Answer (WF): The** DROP=** option tells SAS which variables you want to *drop from* a data set. If you place the **DROP=** option on the SET statement, SAS drops the specified variables when it reads the input data set. On the other hand, if you place the **DROP=** option on the DATA statement, SAS drops the specified variables when it writes to the output data set. The** KEEP=** option tells SAS which variables you want to *keep in* a data set. If you place the **KEEP=** option on the SET statement, SAS keeps the specified variables when it reads the input data set. On the other hand, if you place the **KEEP=** option on the DATA statement, SAS keeps the specified variables when it writes to the output data set.
 
 \[Chapter 11 problem 2\]
 - Question (WF): For creating a new SAS dataset, can we use more than two dataset in set statement?  
@@ -441,10 +435,10 @@ keeps the specified variables when it writes to the output data set.
 - Question (WF): Can we create a new variable within a new dataset that is different from the one in set statement?  
 - Answer (WF): Yes, here is an example:
 ```SAS
-		DATA new\_data;
-			SET old\_data;
-			new\_var1 = "A";
-			new\_var2 = 3;
+		DATA newdata;
+			SET olddata;
+			newvar1 = "A";
+			newvar2 = 3;
 		RUN;
 ```
 - Question (WF): What is the affect on resources, when proc sort is used as compare to " BY "statement in data step?  
