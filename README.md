@@ -27,10 +27,8 @@ The instructor will then review the pull request and make comments should furthe
 - Question (WF): Does SAS make the distinction between a variable and an array?
 - Answer (WF): array is a set of variables grouped together for the duration of a data step by being given a name in an ARRAY statement.
 
-- Question (WF): Is it possible to have a completely empty
-    observation? Would there be any reason to allow this?
-- Answer (WF): It’s possible to create an empty dataset by stopping
-    process before output.
+- Question (WF): Is it possible to have a completely empty observation? Would there be any reason to allow this?
+- Answer (WF): It’s possible to create an empty dataset by stopping process before output.
     
 - Question (AS): Is there a way to print out the values of certain variables during debugging i.e. equivalent of a print statement?
 - Answer: TBD
@@ -52,7 +50,8 @@ The instructor will then review the pull request and make comments should furthe
 \[Chapter 1, Problem 8\]
 - Question (WF): Why was 8 bytes chosen? Is it efficient to store all variables with such a large precision?
 - Answer (WF): 8 bytes is 64bits, which most CPUs today are 64-bit architecture.
-
+- Question (AP):Can we configure the default length for the variable types? How?
+- Answer(AP):We can configure the default length for variables using the length statement. General format is LENGTH variable-list $ number-of-bytes;
 
 ## Chapter 2 Questions
 
@@ -70,15 +69,8 @@ The instructor will then review the pull request and make comments should furthe
 \[Chapter 2, Problem 7\]
 - Question (IL): What's the difference between starting a SAS program with "data" versus "proc", and why do both end types of programs end with the same "run" command, even though the bodies of the programs look nothing alike?
 - Answer (IL): SAS programs are divided into "steps", each step is either a data step or a proc step (as determined by the first word in the step), and all steps are typically terminated by a "run" statement. However, when using a "cards" or "dataline" statement in a data step, then the data step is terminated by a closing semicolon. In addition, some procs (like the interactive proc glm) are only terminated with a "quit" statement.
-
-- Question (SK): What is YEARCUTOFF= option? Why is this different in two year and four year naming conventions?
-- Answer (SK): The value of the YEARCUTOFF= system option affects only two-digit year values. A date value that contains a four-digit year value will be interpreted correctly even if it does not fall within the 100-year span set by the YEARCUTOFF= system option.
-
-- Question (WF): What is a libref? Can a libref be within a DATA, SET, or PROC statement?
-- Answer (WF): To create a new SAS library with SAS code, you use the LIBNAME statement. The LIBNAME statement associates the name of the library, or libref, with the physical location of the library. LIBNAME statement can be executed in bot DATA or PROC step.
-
-- Question (WF): Can I name a library with some key words like SPSS? 
-- Answer (WF): SAS reserves a few names for automatic variables and variable lists, SAS data sets, and librefs, such as WORK, SASHELPER, SASUSER...
+- Question(AP):What are the kinds of statements that should go in the data and proc components of the SAS program?
+- Answer(AP): DATA step: Used to put external data into SAS data sets, create new data sets by merging, subsetting external data sets, compute values and check and correct errors in external data sets; PROC step: Analyse and process data from the sas data set, create reports, produce descriptive statistics etc
 
 \[Chapter 2, Problem 8\]
 - Question (WF): How are namespace conflict issues resolved when two libraries are needed which have the same naming naming conventions and same names?
@@ -96,6 +88,12 @@ The instructor will then review the pull request and make comments should furthe
 - Answer: TBD
 - Question (WF):  How to reference a library which is also a data file? for example, libname rptdata spss 'g:\\myspss.spss';
 - Answer (WF): libname xdb excel "c:\\mymachine\\pcfdata\\demo.xlsx";
+- Question (SK): What is YEARCUTOFF= option? Why is this different in two year and four year naming conventions?
+- Answer (SK): The value of the YEARCUTOFF= system option affects only two-digit year values. A date value that contains a four-digit year value will be interpreted correctly even if it does not fall within the 100-year span set by the YEARCUTOFF= system option.
+- Question (WF): What is a libref? Can a libref be within a DATA, SET, or PROC statement?
+- Answer (WF): To create a new SAS library with SAS code, you use the LIBNAME statement. The LIBNAME statement associates the name of the library, or libref, with the physical location of the library. LIBNAME statement can be executed in bot DATA or PROC step.
+- Question (WF): Can I name a library with some key words like SPSS? 
+- Answer (WF): SAS reserves a few names for automatic variables and variable lists, SAS data sets, and librefs, such as WORK, SASHELPER, SASUSER...
 
 ## Chapter 3 Questions
 [Chapter 3, General Questions]
@@ -115,6 +113,9 @@ The instructor will then review the pull request and make comments should furthe
 
 - Question (WF): What are some errors that SAS can correct automatically? 
 - Answer (WF): SAS does not correct error automatically, it find error for you.
+
+- Question (AP):The error continues to occur in other SAS programs if the statement is not canceled(unclosed quotation marks). So, when we find such errors in the log window how do we make sure it of the current SAS program and not some other program from the session
+- Answer(AP): Cancel all SAS statements, correct the error and run the SAS program again.
 
 \[Chapter 3, Question 5\]
 - Question (WF): what happens if the data values are not appropriate for the SAS statements? Is there a way to convert the data? 
@@ -308,7 +309,42 @@ Then to modify the column size, use a *PROC SQL* statement:
 
 [Chapter 7 ,Problem 7]
 - Question (SK): Need to see an example using "OTHER" for missing numeric values in a proc format step?
-- Answer:TBD
+- Answer (IW): The *OTHER* includes all ages not listed in teams 20 & below and between 20 to 40, and all missing ages, unless missing values are accounted for with . = 'Missing'.
+```SAS
+	proc format;
+  		value age 
+			low -< 20 = "team 1"
+			21 -< 40 = "team 2"
+			other = "undefined";
+	run;
+```
+
+
+\[Chapter 7, Problem 3\]
+- Question (WF): How can SAS version 9 and above be backwards compatible if format-names may now be up to 32 characters?
+- Answer (WF): SAS version prior 9 support format names up to 8 characters, and the version 9 supports format names up to 32. “Up to” means any number between 1 to 32.
+
+- Question (WF): Is it necessary to establish a catalog for formats in the library? Or is that not necessary when using a value statement?
+- Answer (WF): Not necessary. If you plan to use a customized informat or format repeatedly, you can store it permanently in a "formats catalog" by using the LIBRARY= option in the PROC FORMAT statement. Basically, the LIBRARY= option tells SAS where the formats catalog is (to be) stored.
+
+\[Chapter 7, Problem 4\]
+- Question (WF): Why is a library.catalog not used here?
+- Answer (WF): LIBRARY=libref names the library that the procedure processes. This library is the procedure input library.
+
+- Question (WF): Creating value/name pairs is it possible to lookup values by label name?
+- Answer (WF): Labels can be used to improve both the efficiency and quality of the SAS output. It’s not designed for value searching.
+
+\[Chapter 7, Problem 6\]
+- Question (WF): Why are labels unrestricted in size (i.e. relatively so) when compared to SAS variable lengths?
+- Answer (WF): Label add value to the user and make it more efficient and flexible to program. It’s not designed to hold value.
+
+\[Chapter 7, Problem 7\]
+- Question (WF): Is there a single one place where one can go to have the equivalent of a 'JavaDoc' for SAS?
+- Answer (WF): DocItOut (formerly SASDoc).
+
+\[Chapter 7, Question 8\]
+- Question (WF): What happens if place FORMAT statement in a PROC step?
+- Answer (WF): You can put a format statement in a proc step so that the variable has a different format for the output you produce in the proc step. This will not change the format of the variable in the dataset.
 
 ## Chapter 8 Questions
 
@@ -372,19 +408,46 @@ Then to modify the column size, use a *PROC SQL* statement:
 
 ## Chapter 10 Questions
 
+\[Chapter 10, Problem 2\]
+- Question (WF): Is it always true proc formats and labels will trump labels and formats defined in data steps?
+- Answer (WF): SAS program is executed in sequential order.
 
+\[Chapter 10, Problem 7\]
+- Question (WF): What does it do with the DATA step for the length of the variable? When to use the LENGTH statement?
+- Answer (WF): The LENGTH function returns an integer that represents the position of the rightmost non-blank character in string. If the value of string is blank, LENGTH returns a value of 1.
+
+- Question (WF): How does the code look like if we write it out with different ways?
+- Answer (WF):
+```SAS
+	len=length('ABCDEF');
+	put len;
+```
+\[Chapter 10, Problem 8\]
+- Question (WF): Are SELECT groups like case and switch statements in other programming languages?
+- Answer (WF): Yes, C++, Java, Python.
+
+- Question (WF): The problem code requires both IF..THEN statements to run irrespective of they being true, so why isn't option 2 correct (ELSE statement will get executed only when the IF statement is false)?
+- Answer (WF): IF THEN statement only specifies one condition, the ELSE statement specified all other conditions.
+
+- Question (WF): Are the values deleted using the IF..THEN DELETE statement permanently deleted from the data set?
+- Answer (WF): Use the DELETE statement when it is easier to specify a condition that excludes observations from the data set or when there is no need to continue processing the DATA step statements for the current observation. To actually delete the records and renumber the remaining observations, use the PURGE statement.
+
+\[Chapter 10, Question 9\]
+- Question (WF): How to rewrite the length statement so that the program can run successfully?
+- Answer (WF):
+```SAS
+	length s $ 5;
+	s=’ab ’;
+	l=length(s);
+	put ’L=’l;
+	
+```
 ## Chapter 11 Questions
 
 \[Chapter 11, Problem 1\]
 
 - Question (WF): What happens if there was no subset data, the DROP= and KEEP= options are switched in the DATA/SET statements, and variable "weight" has been eliminated?
-- Answer (WF): The** DROP=** option tells SAS which variables you want to *drop from* a data set. If you place the **DROP=** option on the SET statement, SAS drops the specified variables when it reads the input data set. On the other hand, if you place the **DROP=** option on the DATA statement, SAS drops the specified variables when it writes to the output data set.
-
-The** KEEP=** option tells SAS which variables you want to *keep in* a
-data set. If you place the **KEEP=** option on the SET statement, SAS
-keeps the specified variables when it reads the input data set. On the
-other hand, if you place the **KEEP=** option on the DATA statement, SAS
-keeps the specified variables when it writes to the output data set.
+- Answer (WF): The** DROP=** option tells SAS which variables you want to *drop from* a data set. If you place the **DROP=** option on the SET statement, SAS drops the specified variables when it reads the input data set. On the other hand, if you place the **DROP=** option on the DATA statement, SAS drops the specified variables when it writes to the output data set. The** KEEP=** option tells SAS which variables you want to *keep in* a data set. If you place the **KEEP=** option on the SET statement, SAS keeps the specified variables when it reads the input data set. On the other hand, if you place the **KEEP=** option on the DATA statement, SAS keeps the specified variables when it writes to the output data set.
 
 \[Chapter 11 problem 2\]
 - Question (WF): For creating a new SAS dataset, can we use more than two dataset in set statement?  
@@ -406,10 +469,10 @@ keeps the specified variables when it writes to the output data set.
 - Question (WF): Can we create a new variable within a new dataset that is different from the one in set statement?  
 - Answer (WF): Yes, here is an example:
 ```SAS
-		DATA new\_data;
-			SET old\_data;
-			new\_var1 = "A";
-			new\_var2 = 3;
+		DATA newdata;
+			SET olddata;
+			newvar1 = "A";
+			newvar2 = 3;
 		RUN;
 ```
 - Question (WF): What is the affect on resources, when proc sort is used as compare to " BY "statement in data step?  
@@ -479,6 +542,35 @@ keeps the specified variables when it writes to the output data set.
 \[Chapter 13, Problem 5\]
  - Question (IW): How do you convert a numeric date, eg: 01032020 to a SAS date?
  - Answer: TBD
+ 
+\[Chapter 13, Problem 2\]
+- Question (WF): How do I convert a dollar amount to a numeric type? Do I need to strip the '$' first or is there an informat to be used?
+- Answer (WF): If your string contains nondigits such as commas or dollar signs, you need to use the correct informat:
+```SAS
+	char_var = '$6,000,000';
+	numeric_var = input(char_var,dollar10.);
+```
+- Question (WF): For automatic conversions that produce missing numeric values from a character value that does not conform, do the missing values appear in the log window or do they need to be identified manually?
+- Answer (WF): <span id="z1375587" class="anchor"></span>SAS automatically converts character values to numeric values if a character variable is used in an arithmetic expression. If a character value contains nonnumerical information and SAS tries to convert it to a numeric value, a note is printed in the log, the result of the conversion is set to missing, and the _ERROR_ automatic variable is set to 1.
+
+- Question (WF): If this DATA step is executed, SAS automatically converts the character value to numeric values so that calculation may occur. then what type of errors it can run into when doing the automatic conversion?
+- Answer (WF): SAS prints a note in the log and assigns a missing value to the result if you try to perform an illegal operation, such as the following: dividing by zero, taking the logarithm of zero, using an expression to produce a number too large to be represented as a floating-point number (known as overflow).
+
+\[Chapter 13, Problem 3\]
+- Question (WF): what's the difference between comma6. and comma7.?
+- Answer (WF): the length of the value.
+
+\[Chapter 13, Problem 6\]
+- Question (WF): How can I set the default variable length globally to something lower than 200?
+- Answer (WF): SAS gives the variable a default type and length, and you cannot change the default.
+
+\[Chapter 13, Problem 7\]
+- Question (WF): Can I use negative values in SUBSTR as is the case in many other programming languages?
+- Answer (WF): The SUBSTR function takes a character matrix as an argument (along with starting positions and lengths) and produces a character matrix with the same dimensions as the argument. Elements of the result matrix are substrings of the corresponding argument elements, which they are all greater than 0.
+
+\[Chapter 13, Problem 10\]
+- Question (WF): What happens if we take out the "lowcase" command?
+- Answer (WF): String comparisons in SAS software are case-sensitive. For example, the uppercase letter "F" and lowercase letter "f" are treated as unique characters..
  
 ## Chapter 14 Questions
 
