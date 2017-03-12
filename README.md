@@ -594,6 +594,30 @@ Then to modify the column size, use a *PROC SQL* statement:
 	    out = data_info(keep=name type length format);
     run;
 ```
+\[Chapter 17, Problem 5\]
+- Question (WF): Can I specify multiple delimiters at the same time?
+- Answer (WF): You can use DLMSTR option on the INFILE statement. If you set DLMSTR='2C09'X then it will treat multiple delimiters, such as comma and tab as the delimiter between fields.
+
+\[Chapter 17, Problem 7\]
+- Question (WF): Can length and input command not used together?
+- Answer (WF): Yes, you can use other method besides specifying length.
+
+- Question (WF): How can I avoid specifying the length for every variable? Suppose there are an unknown number of variables that may have length greater than 8, which means they will be truncated.
+- Answer (WF): You can use the SAS special character, the colon modifier (: ), for varying length variable format, :$41.. The colon modifier tells SAS when it reads value until there is a break in the character and then stop.
+
+\[Chapter 17, Problem 8\]
+- Question (WF): What is the best method to use for reading character values that are longer than eight characters and which contain embedded blanks?
+- Answer (WF): To properly read character data greater than 8 characters, you need to specify a LENGTH attribute for the variable before the input statement and revert to the simple $ INFORMAT.
+
+- Question (WF): What other situations do other type of input fit for?
+- Answer (WF): Here are different input methods available in SAS: 1) List Input Method - the variables are listed with the data types and the order of the variables declared matches the data. 2) Named Input Method - the variables are listed with the data types. The raw data is modified to have variable names declared in front of the matching data. 3) Column Input Method - variables are listed with the data types and width of the columns which specify the value of the single column of data. 4) Formatted Input Method - variables are read from a fixed starting point until a space is encountered.
+
+\[Chapter 17, Problem 10\]
+- Question (WF): How to read a csv file with values containing commas into SAS?
+- Answer (WF): Using the dsd option to read the CSV file.
+
+- Question (WF): How can free-formatted and formatted variables combined?
+- Answer (WF): Using formatted input allows you to read both standard and nonstandard numeric data. That is, formatted input combines the features of column input with the ability to read nonstandard data values.
 
 ## Chapter 19 Questions
 
