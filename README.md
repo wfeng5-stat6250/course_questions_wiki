@@ -64,7 +64,7 @@ The instructor will then review the pull request and make comments should furthe
 
 - Question (AS): Does YEACUTOFF= option also affect how data is interpreted while writing into and creating a new
    data set or only while reading in from an existing data set ?
-- Answer: TBD
+- Answer(RK): YEARCUTOFF= option in SAS has no effect on existing dates or dates that are read from input data that include a four-digit year, except years with leading zeros. For example, 0062 with yearcutoff=1990 indicates 2062.
 
 \[Chapter 2, Problem 7\]
 - Question (IL): What's the difference between starting a SAS program with "data" versus "proc", and why do both end types of programs end with the same "run" command, even though the bodies of the programs look nothing alike?
