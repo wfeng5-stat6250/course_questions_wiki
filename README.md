@@ -31,6 +31,9 @@ The instructor will then review the pull request and make comments should furthe
     observation? Would there be any reason to allow this?
 - Answer (WF): It’s possible to create an empty dataset by stopping
     process before output.
+    
+- Question (AS): Is there a way to print out the values of certain variables during debugging i.e. equivalent of a print statement?
+- Answer: TBD
 
 \[Chapter 1, Problem 3\]
 - Question (WF): Can a variable's type be both character and numeric?
@@ -60,6 +63,10 @@ The instructor will then review the pull request and make comments should furthe
 - Question (WF): With 4 digit year values in data lines to be read correctly, does it mean that the YEARCUTOFF=option can be eliminated in the program data lines?
 - Answer (WF): yes.
 
+- Question (AS): Does YEACUTOFF= option also affect how data is interpreted while writing into and creating a new
+   data set or only while reading in from an existing data set ?
+- Answer: TBD
+
 \[Chapter 2, Problem 7\]
 - Question (IL): What's the difference between starting a SAS program with "data" versus "proc", and why do both end types of programs end with the same "run" command, even though the bodies of the programs look nothing alike?
 - Answer (IL): SAS programs are divided into "steps", each step is either a data step or a proc step (as determined by the first word in the step), and all steps are typically terminated by a "run" statement. However, when using a "cards" or "dataline" statement in a data step, then the data step is terminated by a closing semicolon. In addition, some procs (like the interactive proc glm) are only terminated with a "quit" statement.
@@ -83,13 +90,15 @@ The instructor will then review the pull request and make comments should furthe
 \[Chapter 2, Problem 9\]
 - Question (IL): What is a "libref", and how does it differ from a "LIBNAME"?  In particular, what fundamental distinction causes one to be written out in lower-case letters and the other in upper-case letters?
 - Answer (SG): A libname statement is the syntactical statement used to initiate a particular library. The libref is the actual syntax used to name it.
-
+- Question (AS): Can one sas library(folder) contain both SAS native format and external file types ? Does SAS automatically determine if/when to use the extra 'engine' parameter in the libname statement to use for reading the non-SAS file ?
+- Answer: TBD
+- Question (AS): what statement is used to delete a libref within a SAS program? opposite of LIBNAME?
+- Answer: TBD
 - Question (WF):  How to reference a library which is also a data file? for example, libname rptdata spss 'g:\\myspss.spss';
 - Answer (WF): libname xdb excel "c:\\mymachine\\pcfdata\\demo.xlsx";
 
-
 ## Chapter 3 Questions
-[Chapter 3, General Question]
+[Chapter 3, General Questions]
 - Question (AS): Is there a way to print out the values of certain variables during debugging i.e. equivalent of a print statement?
 - Answer: TBD
 
@@ -122,6 +131,9 @@ The instructor will then review the pull request and make comments should furthe
 - Answer (WF): SAS is statistics, not word processing. You need to use an external spellchecker.
 
 ## Chapter 4 Questions
+[Chapter 4, Problem 7]
+- Question (AS): In this example, SAS continues to print even though sort fails. Is there a way to force SAS to halt processing if any intermediate steps fail ?
+- Answer: TBD
 
 \[Chapter 4, Problem 1\]
 
@@ -208,7 +220,6 @@ Then to modify the column size, use a *PROC SQL* statement:
             modify total_inventory int(5);
         quit;
 ```
-
 -   Question (WF): Why is StockNumber read in as a character instead of
     a numeric type?
 -   Answer (WF): Stock Number is a name, not a numeric value that
@@ -240,6 +251,7 @@ Then to modify the column size, use a *PROC SQL* statement:
                 where foreign = ‘1’
             run;
 ```
+
 ## Chapter 6 Questions
 \[Chapter 6, Problem 1\]
 -   Question (WF): What is the size of the input buffer?
@@ -284,6 +296,11 @@ Then to modify the column size, use a *PROC SQL* statement:
 
 
 
+[Chapter 6, Problem 7]
+- Question (AS): typically, is the metadata related to the position of the columns in data file provided/available ? Would it not be tedious to create the input statement for datasets with large number of attributes? Are there any general purpose utilities available to do this task of parsing sample data to create input statements ?
+- Answer: TBD
+
+
 ## Chapter 7 Questions
 
 [Chapter 7 ,Problem 7]
@@ -291,12 +308,17 @@ Then to modify the column size, use a *PROC SQL* statement:
 - Answer:TBD
 
 ## Chapter 8 Questions
+
 \[Chapter 8, Problem 1\]
 - Question (WF): Is it possible to create a stem-leaf display? 
 - Answer (WF): Using The PROC UNIVARIATE statement.
 
 - Question (WF): Does the raw data need to be totally clean before performing PROC statements?
 - Answer (WF): No PROC step can also take actions when errors occur, but it is highly recommended to clean up data set in DATA step.
+
+[Chapter 8, Problem 2]
+- Question (AS): there is also statistic named 'VAR' for variance ? does this cause SAS issues ?
+- Answer: TBD
 
 \[Chapter 8, Problem 4\]
 - Question (WF): Is there any difference in the data output that would make either CLASS or BY a better choice, or is it simply a matter of ease and organization?
@@ -327,10 +349,12 @@ Then to modify the column size, use a *PROC SQL* statement:
     proc print data=want;
     run;
 ```
+- Question (AS): in relation to proc frequency, what are 'categorical values' ?
+- Answer: TBD
+
 \[Chapter 8, Problem 8\]
 - Question (WF): What's the best way to work on continuous values, numeric values and unique values? Maybe to sort the data first before perform the frequency distribution? 
-- Answer (WF): Recommended. By using PROC SORT, you can also do things like create a new data set, subset your data, rename, drop, keep,
-format, or label your variables all in that same procedure.
+- Answer (WF): Recommended. By using PROC SORT, you can also do things like create a new data set, subset your data, rename, drop, keep, format, or label your variables all in that same procedure.
 
 \[Chapter 8, problem 10\]
 - Question (WF): Does memory can impact when we use multiple PROC freq command to generate cross-tabulations.
