@@ -407,7 +407,40 @@ Then to modify the column size, use a *PROC SQL* statement:
 
 ## Chapter 10 Questions
 
+\[Chapter 10, Problem 2\]
+- Question (WF): Is it always true proc formats and labels will trump labels and formats defined in data steps?
+- Answer (WF): SAS program is executed in sequential order.
 
+\[Chapter 10, Problem 7\]
+- Question (WF): What does it do with the DATA step for the length of the variable? When to use the LENGTH statement?
+- Answer (WF): The LENGTH function returns an integer that represents the position of the rightmost non-blank character in string. If the value of string is blank, LENGTH returns a value of 1.
+
+- Question (WF): How does the code look like if we write it out with different ways?
+- Answer (WF):
+```SAS
+	len=length('ABCDEF');
+	put len;
+```
+\[Chapter 10, Problem 8\]
+- Question (WF): Are SELECT groups like case and switch statements in other programming languages?
+- Answer (WF): Yes, C++, Java, Python.
+
+- Question (WF): The problem code requires both IF..THEN statements to run irrespective of they being true, so why isn't option 2 correct (ELSE statement will get executed only when the IF statement is false)?
+- Answer (WF): IF THEN statement only specifies one condition, the ELSE statement specified all other conditions.
+
+- Question (WF): Are the values deleted using the IF..THEN DELETE statement permanently deleted from the data set?
+- Answer (WF): Use the DELETE statement when it is easier to specify a condition that excludes observations from the data set or when there is no need to continue processing the DATA step statements for the current observation. To actually delete the records and renumber the remaining observations, use the PURGE statement.
+
+\[Chapter 10, Question 9\]
+- Question (WF): How to rewrite the length statement so that the program can run successfully?
+- Answer (WF):
+```SAS
+	length s $ 5;
+	s=’ab ’;
+	l=length(s);
+	put ’L=’l;
+	
+```
 ## Chapter 11 Questions
 
 \[Chapter 11, Problem 1\]
