@@ -584,6 +584,31 @@ Then to modify the column size, use a *PROC SQL* statement:
 - Question (SK): What does COMMAw.d work and how does it interpret parenthesis?
 - Answer (SK): The COMMAw.d informat does more than simply read the raw data values. It removes special characters such as    commas from numeric data and stores only numeric values in a SAS data set.
 
+\[Chapter 16, Problem 1\]:
+- Question (WF): Will there be auto-correct input formatting variable allocation pointer initialization and positioning should one forget to set bit operation auditing option flag from command line system administration custom installation parameters?
+- Answer (WF): SAS does not auto-correct any error.
+
+- Question (WF): How can the previous question be done to provide seamless integration between the virtualized environment and system applications and host OS?
+- Answer (WF): Seamless integration between the virtualized environment and system applications and host OS is not in the scope of SAS.
+
+\[Chapter 16, Problem 4\]
+- Question (WF): Should formatted input be used as a default over column input as it can read both standard and nonstandard data in fixed fields?
+- Answer (WF): Formatted input needs to be specified additional information, which depends on the format of dataset that is not standardized.
+
+\[Chapter 16, Problem 5\]:
+- Question (WF): What is the delimiter character for informat keywords, and what is its type?
+- Answer (WF): It’s a long list, and it can be found at here: http://support.sas.com/documentation/cdl/en/lrdict/64316/HTML/default/viewer.htm\#a001239776.htm
+
+- Question (WF): How can I read in the European-style currencies where the decimal and comma are swapped compared to US currencies?
+- Answer (WF): Using DOLLARXw.d. The DOLLARXw.d format writes numeric values with a leading dollar sign, with a period that separates every three digits, and with a comma that separates the decimal fraction.
+
+\[Chapter 16, Problem 8\]
+- Question (WF): Can SAS input process unicode character based character sets?
+- Answer (WF): SAS doesn't recognize UNICODE, but you can add the ENCODING=UNICODE option to your FILENAME or INFILE statement in order to handle UNICODE.
+
+- Question (WF): Once special characters have been removed from nonstandard numeric data, is it possible to reformat the data to be displayed or stored with characters such as the dollar sign or commas?
+- Answer (WF): Using DOLLARw.d format to writes numeric values with a leading dollar sign, a comma that separates every three digits, and a period that separates the decimal fraction.
+
 ## Chapter 17 Questions
 
 [Chapter 17, Problem 2]
