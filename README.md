@@ -404,7 +404,18 @@ Then to modify the column size, use a *PROC SQL* statement:
 - Answer (WF): Yes, The system option MEMSIZE sets a limit on the amount of memory used by the SAS System. The memory size impact SAS program performance in general.
 
 - Question (SK): Does reversing the order of the variables in the TABLES statement would reverse their positions in the table?
-- Answer: TBD  
+- Answer (IW): Yes. The first statement below creates a frequency table with Age listed vertically and Grade listed horizontally, while the second statemet creates a table with Grade listed vertically and Age listed horizontally.
+
+```SAS
+	proc freq data=mid_term ;
+		tables Age * Grade;
+	run; 
+```
+```SAS
+	proc freq data=mid_term ;
+		tables Grade * Age;
+	run; 
+```
 
 ## Chapter 10 Questions
 
