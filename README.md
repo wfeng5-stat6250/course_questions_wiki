@@ -85,7 +85,10 @@ The instructor will then review the pull request and make comments should furthe
 - Question (AS): Can one sas library(folder) contain both SAS native format and external file types ? Does SAS automatically determine if/when to use the extra 'engine' parameter in the libname statement to use for reading the non-SAS file ?
 - Answer: TBD
 - Question (AS): what statement is used to delete a libref within a SAS program? opposite of LIBNAME?
-- Answer: TBD
+- Answer (IW): To delete a *libref* within a SAS program, use the below statement. You can specify *libref* or use *_ALL_* to clear all current *librefs*. 
+```SAS
+	LIBNAME libref CLEAR|_ALL_CLEAR;
+```
 - Question (WF):  How to reference a library which is also a data file? for example, libname rptdata spss 'g:\\myspss.spss';
 - Answer (WF): libname xdb excel "c:\\mymachine\\pcfdata\\demo.xlsx";
 - Question (SK): What is YEARCUTOFF= option? Why is this different in two year and four year naming conventions?
