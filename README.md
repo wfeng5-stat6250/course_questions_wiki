@@ -543,6 +543,35 @@ Then to modify the column size, use a *PROC SQL* statement:
  - Question (IW): How do you convert a numeric date, eg: 01032020 to a SAS date?
  - Answer: TBD
  
+\[Chapter 13, Problem 2\]
+- Question (WF): How do I convert a dollar amount to a numeric type? Do I need to strip the '$' first or is there an informat to be used?
+- Answer (WF): If your string contains nondigits such as commas or dollar signs, you need to use the correct informat:
+```SAS
+	char_var = '$6,000,000';
+	numeric_var = input(char_var,dollar10.);
+```
+- Question (WF): For automatic conversions that produce missing numeric values from a character value that does not conform, do the missing values appear in the log window or do they need to be identified manually?
+- Answer (WF): <span id="z1375587" class="anchor"></span>SAS automatically converts character values to numeric values if a character variable is used in an arithmetic expression. If a character value contains nonnumerical information and SAS tries to convert it to a numeric value, a note is printed in the log, the result of the conversion is set to missing, and the _ERROR_ automatic variable is set to 1.
+
+- Question (WF): If this DATA step is executed, SAS automatically converts the character value to numeric values so that calculation may occur. then what type of errors it can run into when doing the automatic conversion?
+- Answer (WF): SAS prints a note in the log and assigns a missing value to the result if you try to perform an illegal operation, such as the following: dividing by zero, taking the logarithm of zero, using an expression to produce a number too large to be represented as a floating-point number (known as overflow).
+
+\[Chapter 13, Problem 3\]
+- Question (WF): what's the difference between comma6. and comma7.?
+- Answer (WF): the length of the value.
+
+\[Chapter 13, Problem 6\]
+- Question (WF): How can I set the default variable length globally to something lower than 200?
+- Answer (WF): SAS gives the variable a default type and length, and you cannot change the default.
+
+\[Chapter 13, Problem 7\]
+- Question (WF): Can I use negative values in SUBSTR as is the case in many other programming languages?
+- Answer (WF): The SUBSTR function takes a character matrix as an argument (along with starting positions and lengths) and produces a character matrix with the same dimensions as the argument. Elements of the result matrix are substrings of the corresponding argument elements, which they are all greater than 0.
+
+\[Chapter 13, Problem 10\]
+- Question (WF): What happens if we take out the "lowcase" command?
+- Answer (WF): String comparisons in SAS software are case-sensitive. For example, the uppercase letter "F" and lowercase letter "f" are treated as unique characters..
+ 
 ## Chapter 14 Questions
 
 
