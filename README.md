@@ -623,6 +623,10 @@ Then to modify the column size, use a *PROC SQL* statement:
 - Question (WF): Once special characters have been removed from nonstandard numeric data, is it possible to reformat the data to be displayed or stored with characters such as the dollar sign or commas?
 - Answer (WF): Using DOLLARw.d format to writes numeric values with a leading dollar sign, a comma that separates every three digits, and a period that separates the decimal fraction.
 
+- Question (IW): When reading a cost values, suppose one of the values, eg: 298.99, is displayed without a dollar sign. How do you read the cost when some values have a dollar sign in front and some do not have a dollar sign in front?
+- Answer : TBD
+
+
 ## Chapter 17 Questions
 
 [Chapter 17, Problem 2]
