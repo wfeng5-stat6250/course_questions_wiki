@@ -637,6 +637,9 @@ Then to modify the column size, use a *PROC SQL* statement:
 - Question (WF): Can I specify multiple delimiters at the same time?
 - Answer (WF): You can use DLMSTR option on the INFILE statement. If you set DLMSTR='2C09'X then it will treat multiple delimiters, such as comma and tab as the delimiter between fields.
 
+- Question(IW) : How do you read values that contain delimiters inside a column, for instance, a phone number may be listed as 717-920-5690 but this number needs to be displayed in SAS output without the '-'?
+- Answer : TBD
+
 \[Chapter 17, Problem 7\]
 - Question (WF): Can length and input command not used together?
 - Answer (WF): Yes, you can use other method besides specifying length.
