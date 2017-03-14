@@ -150,6 +150,28 @@ The instructor will then review the pull request and make comments should furthe
 - Question (WF): When do we want to make a label instead of just using them as a variable? Is it when for the convenience of the variables?
 - Answer (WF): Using a LABEL statement in a DATA step permanently associates labels with variables by affecting the descriptor information of the SAS data set that contains the variables. 
 
+- Question (SK): How to remove Obs column from the output ? How to replce obs with other variable ?
+- Answer (SK): - To remove the Obs column , specify the "noobs" option in the PROC PRINT statement.
+e:g
+```SAS
+    proc print data=work.example noobs;
+         var 
+	    age 
+	    height 
+	    weight 
+	    fee
+	    ;
+    run;
+```
+- To specify which variables should replace the Obs column, use the ID statement. This
+technique is particularly useful when observations are too long to print on one line.
+e:g
+```SAS
+    proc print data=sales.reps;
+      id idnum lastname ;
+    run;
+```
+
 \[Chapter 4, Problem 4\]
 - Question (WF): If you specify the same out=ref.name in your procs does it overwrite the previous values in that SAS data object? 
 - Answer (WF): Yes.
@@ -188,7 +210,16 @@ The instructor will then review the pull request and make comments should furthe
     the fileref be saved and utilized in other SAS sessions? 
 -   Answer (WF): File Shortcuts are active only during the current
     SAS session. 
-    
+
+- Questions (SK):What is the command to disassociate a libref ?
+- Answer (SK):To disassociate a libref, use a LIBNAME statement, specifying the libref and the CLEAR option.
+```SAS
+        libname results 'c:\users\exercise.xlsx';
+        proc print data=results.'tests$'n;
+        run;
+        libname results clear; 
+```
+
 \[Chapter 5, Problem 6\]
 -   Question (WF): Where to define the name/position for Infile command?
 -   Answer (WF): The FILENAME option defines a variable, whose name you
@@ -463,6 +494,9 @@ Then to modify the column size, use a *PROC SQL* statement:
 - Question (WF): What happens if there was no subset data, the DROP= and KEEP= options are switched in the DATA/SET statements, and variable "weight" has been eliminated?
 - Answer (WF): The** DROP=** option tells SAS which variables you want to *drop from* a data set. If you place the **DROP=** option on the SET statement, SAS drops the specified variables when it reads the input data set. On the other hand, if you place the **DROP=** option on the DATA statement, SAS drops the specified variables when it writes to the output data set. The** KEEP=** option tells SAS which variables you want to *keep in* a data set. If you place the **KEEP=** option on the SET statement, SAS keeps the specified variables when it reads the input data set. On the other hand, if you place the **KEEP=** option on the DATA statement, SAS keeps the specified variables when it writes to the output data set.
 
+- Question (SK): What will happen if a variable is droped in the set statement ,can it be used in processing data for dataset?
+- Answer: TBD
+
 \[Chapter 11 problem 2\]
 - Question (WF): For creating a new SAS dataset, can we use more than two dataset in set statement?  
 - Answer (WF): Yes, by using MERGE statement.
@@ -514,6 +548,10 @@ Then to modify the column size, use a *PROC SQL* statement:
 - Question (WF): What are the pros and cons of indexing compared to sorting data for a merge?
 - Answer (WF): If the data is sorted, the code that creates the index does not have to search for the correct place to store the new value, which consumes extra I/O and CPU resources. If an index is built with unsorted data, it might be larger than an index that is built with sorted data because all the pages might not be full. Sorting the data takes extra time, but generally results in a more compact index that builds faster.
 
+[Chapter 12, Problem 3]
+- Question (SK): Does Proc SQL has all the SQL commands ? like for e;g inner and outer join ?
+- Answer: TBD
+
 \[Chapter 12, Problem 4\]
 - Question (WF): If the variable types differ in the datasets to be concatenated, how can they be modified?
 - Answer (WF): Using rename option to temporarily rename a variable when doing merge. For example:
@@ -553,6 +591,14 @@ Then to modify the column size, use a *PROC SQL* statement:
 ```
 
 ## Chapter 13 Questions
+
+[Chapter 13, Problem 1]
+- Question (SK): Which function calculates the average of the variables Var1, Var2, Var3, and Var4 ? What is the use of "of" in the statement ?
+- Answer (SK): -When a function contains more than one argument, the arguments are usually separated by commas.   
+e:g  function-name(argument-1,argument-2,argument-n) . However, for some functions, variable lists and arrays can also be 
+used as arguments,When specifying a variable list, be sure to precede the list with the word "of". If you omit the
+word " of ", the function argument might not be interpreted as expected as long as the list or the array is preceded by the word "of".
+
 \[Chapter 13, Problem 5\]
  - Question (IW): How do you convert a numeric date, eg: 01032020 to a SAS date?
  - Answer: TBD
