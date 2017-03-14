@@ -64,7 +64,7 @@ The instructor will then review the pull request and make comments should furthe
 
 - Question (AS): Does YEACUTOFF= option also affect how data is interpreted while writing into and creating a new
    data set or only while reading in from an existing data set ?
-- Answer: TBD
+- Answer(RK): YEARCUTOFF= option in SAS has no effect on existing dates or dates that are read from input data that include a four-digit year, except years with leading zeros. For example, 0062 with yearcutoff=1990 indicates 2062.
 
 \[Chapter 2, Problem 7\]
 - Question (IL): What's the difference between starting a SAS program with "data" versus "proc", and why do both end types of programs end with the same "run" command, even though the bodies of the programs look nothing alike?
@@ -85,7 +85,10 @@ The instructor will then review the pull request and make comments should furthe
 - Question (AS): Can one sas library(folder) contain both SAS native format and external file types ? Does SAS automatically determine if/when to use the extra 'engine' parameter in the libname statement to use for reading the non-SAS file ?
 - Answer: TBD
 - Question (AS): what statement is used to delete a libref within a SAS program? opposite of LIBNAME?
-- Answer: TBD
+- Answer (IW): To delete a *libref* within a SAS program, use the below statement. You can specify *libref* or use *_ALL_* to clear all current *librefs*. 
+```SAS
+	LIBNAME libref CLEAR|_ALL_CLEAR;
+```
 - Question (WF):  How to reference a library which is also a data file? for example, libname rptdata spss 'g:\\myspss.spss';
 - Answer (WF): libname xdb excel "c:\\mymachine\\pcfdata\\demo.xlsx";
 - Question (SK): What is YEARCUTOFF= option? Why is this different in two year and four year naming conventions?
@@ -404,7 +407,18 @@ Then to modify the column size, use a *PROC SQL* statement:
 - Answer (WF): Yes, The system option MEMSIZE sets a limit on the amount of memory used by the SAS System. The memory size impact SAS program performance in general.
 
 - Question (SK): Does reversing the order of the variables in the TABLES statement would reverse their positions in the table?
-- Answer: TBD  
+- Answer (IW): Yes. The first statement below creates a frequency table with Age listed vertically and Grade listed horizontally, while the second statemet creates a table with Grade listed vertically and Age listed horizontally.
+
+```SAS
+	proc freq data=mid_term ;
+		tables Age * Grade;
+	run; 
+```
+```SAS
+	proc freq data=mid_term ;
+		tables Grade * Age;
+	run; 
+```
 
 ## Chapter 10 Questions
 
@@ -584,6 +598,35 @@ Then to modify the column size, use a *PROC SQL* statement:
 - Question (SK): What does COMMAw.d work and how does it interpret parenthesis?
 - Answer (SK): The COMMAw.d informat does more than simply read the raw data values. It removes special characters such as    commas from numeric data and stores only numeric values in a SAS data set.
 
+\[Chapter 16, Problem 1\]:
+- Question (WF): Will there be auto-correct input formatting variable allocation pointer initialization and positioning should one forget to set bit operation auditing option flag from command line system administration custom installation parameters?
+- Answer (WF): SAS does not auto-correct any error.
+
+- Question (WF): How can the previous question be done to provide seamless integration between the virtualized environment and system applications and host OS?
+- Answer (WF): Seamless integration between the virtualized environment and system applications and host OS is not in the scope of SAS.
+
+\[Chapter 16, Problem 4\]
+- Question (WF): Should formatted input be used as a default over column input as it can read both standard and nonstandard data in fixed fields?
+- Answer (WF): Formatted input needs to be specified additional information, which depends on the format of dataset that is not standardized.
+
+\[Chapter 16, Problem 5\]:
+- Question (WF): What is the delimiter character for informat keywords, and what is its type?
+- Answer (WF): It’s a long list, and it can be found at here: http://support.sas.com/documentation/cdl/en/lrdict/64316/HTML/default/viewer.htm\#a001239776.htm
+
+- Question (WF): How can I read in the European-style currencies where the decimal and comma are swapped compared to US currencies?
+- Answer (WF): Using DOLLARXw.d. The DOLLARXw.d format writes numeric values with a leading dollar sign, with a period that separates every three digits, and with a comma that separates the decimal fraction.
+
+\[Chapter 16, Problem 8\]
+- Question (WF): Can SAS input process unicode character based character sets?
+- Answer (WF): SAS doesn't recognize UNICODE, but you can add the ENCODING=UNICODE option to your FILENAME or INFILE statement in order to handle UNICODE.
+
+- Question (WF): Once special characters have been removed from nonstandard numeric data, is it possible to reformat the data to be displayed or stored with characters such as the dollar sign or commas?
+- Answer (WF): Using DOLLARw.d format to writes numeric values with a leading dollar sign, a comma that separates every three digits, and a period that separates the decimal fraction.
+
+- Question (IW): When reading a cost values, suppose one of the values, eg: 298.99, is displayed without a dollar sign. How do you read the cost when some values have a dollar sign in front and some do not have a dollar sign in front?
+- Answer : TBD
+
+
 ## Chapter 17 Questions
 
 [Chapter 17, Problem 2]
@@ -594,6 +637,33 @@ Then to modify the column size, use a *PROC SQL* statement:
 	    out = data_info(keep=name type length format);
     run;
 ```
+\[Chapter 17, Problem 5\]
+- Question (WF): Can I specify multiple delimiters at the same time?
+- Answer (WF): You can use DLMSTR option on the INFILE statement. If you set DLMSTR='2C09'X then it will treat multiple delimiters, such as comma and tab as the delimiter between fields.
+
+- Question(IW) : How do you read values that contain delimiters inside a column, for instance, a phone number may be listed as 717-920-5690 but this number needs to be displayed in SAS output without the '-'?
+- Answer : TBD
+
+\[Chapter 17, Problem 7\]
+- Question (WF): Can length and input command not used together?
+- Answer (WF): Yes, you can use other method besides specifying length.
+
+- Question (WF): How can I avoid specifying the length for every variable? Suppose there are an unknown number of variables that may have length greater than 8, which means they will be truncated.
+- Answer (WF): You can use the SAS special character, the colon modifier (: ), for varying length variable format, :$41.. The colon modifier tells SAS when it reads value until there is a break in the character and then stop.
+
+\[Chapter 17, Problem 8\]
+- Question (WF): What is the best method to use for reading character values that are longer than eight characters and which contain embedded blanks?
+- Answer (WF): To properly read character data greater than 8 characters, you need to specify a LENGTH attribute for the variable before the input statement and revert to the simple $ INFORMAT.
+
+- Question (WF): What other situations do other type of input fit for?
+- Answer (WF): Here are different input methods available in SAS: 1) List Input Method - the variables are listed with the data types and the order of the variables declared matches the data. 2) Named Input Method - the variables are listed with the data types. The raw data is modified to have variable names declared in front of the matching data. 3) Column Input Method - variables are listed with the data types and width of the columns which specify the value of the single column of data. 4) Formatted Input Method - variables are read from a fixed starting point until a space is encountered.
+
+\[Chapter 17, Problem 10\]
+- Question (WF): How to read a csv file with values containing commas into SAS?
+- Answer (WF): Using the dsd option to read the CSV file.
+
+- Question (WF): How can free-formatted and formatted variables combined?
+- Answer (WF): Using formatted input allows you to read both standard and nonstandard numeric data. That is, formatted input combines the features of column input with the ability to read nonstandard data values.
 
 ## Chapter 19 Questions
 
