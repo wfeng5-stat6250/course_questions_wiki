@@ -150,7 +150,7 @@ The instructor will then review the pull request and make comments should furthe
 - Question (WF): When do we want to make a label instead of just using them as a variable? Is it when for the convenience of the variables?
 - Answer (WF): Using a LABEL statement in a DATA step permanently associates labels with variables by affecting the descriptor information of the SAS data set that contains the variables. 
 
--Question (SK): How to remove Obs column from the output ? How to replce obs with other variable ?
+- Question (SK): How to remove Obs column from the output ? How to replce obs with other variable ?
 - Answer (SK): - To remove the Obs column , specify the "noobs" option in the PROC PRINT statement.
 e:g
 ```SAS
