@@ -758,3 +758,41 @@ word " of ", the function argument might not be interpreted as expected as long 
 [Chapter 20 , Problem 6]
 - Question (SK): Is it possible to get the calculations like summation or average of the data values in each iteration when using @@?
 - Answer: TBD
+
+\[Chapter 20, Problem 3\]
+- Question (WF): Can there be a scenario in which both a @ and @@ is necessary?
+- Answer (WF): Yes, you can put them into a Do-Loops statement. For example:
+
+	data data1;
+		infile cards;
+		input city :$ @;
+		do quarter =1 to 4 ;
+			input time$ temperature @@;
+			cards;
+			12 32 13 34 14 35 15 32
+		output;
+		end;
+	run;
+
+\[Chapter 20, Problem 4\]
+- Question (WF): When we use loops with @ pointers, does this statement is heavy on SAS performance as it forces to read several iteration for a single record?
+- Answer (WF): No, it’s not really impacting the system performance.
+
+\[Chapter 20, Problem 6\]
+- Question (WF): Is it possible to get the calculations like summation or average of the data values in each iteration when using @@?
+- Answer (WF): The double trailing at sign (@@) tells SAS rather than advancing to a new record, hold the current input record for the
+execution of the next INPUT statement, even across iterations of the DATA step. It’s mainly designed for input.
+
+- Question (WF):  If the data set contains data past the specified entries we would like for each column, does SAS correctly ignore the entries and move to the next column?
+- Answer (WF): SAS truncates any value that exceeds variable maximum length.
+
+\[Chapter 20, Problem 10\]
+- Question (WF): What's the loop statement here?
+- Answer (WF): It’s the D0-While statement. DO with a WHILE clause, the expression is evaluated at the beginning of each loop, with iterations continuing until the expression is false (that is, until the expression contains a zero or a missing value).
+
+- Question (WF): Is SAS able to handle newline characters like other languages? It seems like reading until a '\\n' is encountered would simplify some of these coding segments.
+- Answer (WF): If you intend to use ODS HTML, ODS RTF or ODS PDF to display your output (such as in PROC PRINT or PROC REPORT), then you can use ODS ESCAPECHAR to insert a line feed or carriage return into a string
+
+- Question (WF): Should MISSOVER always be included as a default to prevent data being read incorrectly, or can its presence cause issues if it is not necessary?
+- Answer (WF): When the MISSOVER option is used on the INFILE statement, the INPUT statement does not jump to the next line when reading a short line. Instead, MISSOVER sets variables to missing. Whether or no to use MISSOVER depends on how the structure of the raw data file.
+
