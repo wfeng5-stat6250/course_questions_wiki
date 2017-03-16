@@ -131,7 +131,7 @@ The instructor will then review the pull request and make comments should furthe
 - Answer (WF): You would get syntax error.
 
 - Question (SK): What is the way to figure out,where the logic error is and how can we rectify it without knowing the error log?
-- Answer: TBD
+- Answer (IW): If a column in an output table is not producing any values,empty or displays an unexpected output, then it is likely that there is a logic error. Use DATA step debugger to figure out these logic errors in the output. To invoke the debugger log window, insert DEBUG option in the DATA statement and resubmit the DATA step. When the DEBUGGER LOG window opens type *examine variable_name* to debug the error in the DATA step. 
 
 \[Chapter 3, Problem 7\]
 - Question (WF): What do you do to fix misspelled words in SAS statements?
