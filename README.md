@@ -762,7 +762,7 @@ word " of ", the function argument might not be interpreted as expected as long 
 \[Chapter 20, Problem 3\]
 - Question (WF): Can there be a scenario in which both a @ and @@ is necessary?
 - Answer (WF): Yes, you can put them into a Do-Loops statement. For example:
-
+```SAS
 	data data1;
 		infile cards;
 		input city :$ @;
@@ -773,7 +773,7 @@ word " of ", the function argument might not be interpreted as expected as long 
 		output;
 		end;
 	run;
-
+```
 \[Chapter 20, Problem 4\]
 - Question (WF): When we use loops with @ pointers, does this statement is heavy on SAS performance as it forces to read several iteration for a single record?
 - Answer (WF): No, it’s not really impacting the system performance.
