@@ -717,6 +717,42 @@ word " of ", the function argument might not be interpreted as expected as long 
 - Question (SK): What is the difference between / and #n ? Which one is more preferable / or #n in order to read data value sequentially and no sequencially?
 - Answer (SK): -The / line pointer control and the #n line pointer control can be combined within a SAS program to read multiple records both sequentially and non-sequentially.The first #n line pointer control enables you to read the values for each record where as The INPUT statement uses the / line pointer control to move the input pointer forward from the first record to the second record, and from the second record to the third record.
 
+
+\[Chapter 19, Problem 4\]:
+- Question (WF): Is there ever a time when one must place the relative operator in front of variable?
+- Answer (WF): Yes, for example the +n column point, it’s placed in front of variable.
+```SAS
+	input 	+12 Quarter 1. @1 Region $9.
+		+6 TotalSales comma11.
+```
+\[Chapter 19, Problem 5\]:
+- Question (WF):  Is it possible to read in strings until reaching EOL or EOF?
+- Answer (WF): Yes, using the @@ line-hold specifiers. For example:
+```SAS
+ 	data test;
+		input name $ age @@;
+	datalines;
+	John 13 Monica 12 Sue 15 Stephen 10
+	Marc 22 Lily 17;
+```
+- Question (WF): Need to review the formatted input, column input, and listed input.
+- Answer (WF): List Input Method - the variables are listed with the data types and the order of the variables declared matches the data. Named Input Method - the variables are listed with the data types. The raw data is modified to have variable names declared in front of the matching data. Column Input Method - variables are listed with the data types and width of the columns which specify the value of the single column of data. Formatted Input Method - variables are read from a fixed starting point until a space is encountered.
+
+\[Chapter 19, Problem 6\]
+- Question (WF): In terms of efficiency, should one avoid jumping from one row to another? If you were reading a very large complex dataset maybe this would become an issue.
+- Answer (WF): the general rule of thumb to make INPUT statement runs efficient is to spend less CPU time, reduce I/O, and save disk space. Therefore, reading file in sequence might be more efficiency.
+
+- Question (WF): What does the symbol @ do here?
+- Answer (WF): holds an input record for the execution of the next INPUT statement within the same iteration of the DATA step. This line-hold specifier is called trailing @.
+
+\[Chapter 19, Problem 7\]:
+- Question (WF):  What is the name of the '&' operator?
+- Answer (WF): There is no special name for ‘&’ in SAS, it’s still called “ampersand”.
+
+\[Chapter 19, Problem 8\]: 
+- Question (WF): Can one use the line pointer control in both a relative and absolute context?
+- Answer (WF): Yes, line pointer does not care about where the record data resides.
+
 ## Chapter 20 Questions
 
 [Chapter 20 , Problem 6]
