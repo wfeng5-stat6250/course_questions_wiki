@@ -495,7 +495,7 @@ Then to modify the column size, use a *PROC SQL* statement:
 - Answer (WF): The** DROP=** option tells SAS which variables you want to *drop from* a data set. If you place the **DROP=** option on the SET statement, SAS drops the specified variables when it reads the input data set. On the other hand, if you place the **DROP=** option on the DATA statement, SAS drops the specified variables when it writes to the output data set. The** KEEP=** option tells SAS which variables you want to *keep in* a data set. If you place the **KEEP=** option on the SET statement, SAS keeps the specified variables when it reads the input data set. On the other hand, if you place the **KEEP=** option on the DATA statement, SAS keeps the specified variables when it writes to the output data set.
 
 - Question (SK): What will happen if a variable is droped in the set statement ,can it be used in processing data for dataset?
-- Answer: TBD
+- Answer (IW) : No. When *DROP* option is used in the *SET* statement, the new dataset will not contain the variables that were dropped from the old dataset. The program data vector used to create the new temporary dataset will only contain variables that were not dropped in the *SET* statement. 
 
 \[Chapter 11 problem 2\]
 - Question (WF): For creating a new SAS dataset, can we use more than two dataset in set statement?  
