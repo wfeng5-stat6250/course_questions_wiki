@@ -31,7 +31,7 @@ The instructor will then review the pull request and make comments should furthe
 - Answer (WF): It’s possible to create an empty dataset by stopping process before output.
     
 - Question (AS): Is there a way to print out the values of certain variables during debugging i.e. equivalent of a print statement?
-- Answer: TBD
+- Answer (IW): Invoke the DATA STEP DEBUGGER by inserting DEBUG in the DATA statement. Then a debugger log window appears. In the debugger log window type *examine _all_* or *examine variable_name* which will print out values of the code until the break point of the debugger.
 
 \[Chapter 1, Problem 3\]
 - Question (WF): Can a variable's type be both character and numeric?
