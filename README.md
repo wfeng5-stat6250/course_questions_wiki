@@ -640,6 +640,34 @@ word " of ", the function argument might not be interpreted as expected as long 
 - Answer (WF): String comparisons in SAS software are case-sensitive. For example, the uppercase letter "F" and lowercase letter "f" are treated as unique characters..
  
 ## Chapter 14 Questions
+\[Chapter 14, Problem 1\]
+- Question (WF): What will happen if DO-loops combine both DATA and PROC steps?
+- Answer (WF): Normally, you cannot put a DATA step inside a PROC step and vice versa.
+
+\[Chapter 14, Problem 2\]
+- Question (WF): Can a do-loops starts with 0 instead 1?
+- Answer (WF): DO index-variable = start TO stop &lt;BY increment&gt;; both start and stop are required, and start, stop, and increment must be numbers or expressions that yield a number. That means you can pick any number.
+
+\[Chapter 14, Problem 4\]
+- Question (WF): If the DO-loop stops at end value, why the year is 2005 in this case? 
+- Answer (WF): The stop value in a Do-Loop must be go over than the specified range in order to stop the Do-Loop; therefore, the
+end value of the stop is 2005 in this case.
+
+\[Chapter 14, Problem 5\] 
+- Question (WF): Why does the program need the Output statement?
+- Answer (WF): Using OUTPUT without arguments causes the current observation to be written to all data sets that are named in the DATA
+statement. Placing an explicit OUTPUT statement in a DATA step overrides the automatic output, and SAS adds an observation to a data set only when an explicit OUTPUT statement is executed.
+
+\[Chapter 14, Problem 7\] 
+- Question (WF): What are the differences between Do-Until and Do-While?
+- Answer (WF): DO WHILE test is evaluated at the top of the loop. DO UNTIL test is evaluated at the bottom of the loop.
+
+- Question (WF): What is the example prefer Do-Until over Do-While?
+- Answer (WF): Do-until carries out action statement first then evaluate the result, whether it goes beyond the predefined range. Do-While evaluate input condition before execute the action statement.
+
+\[Chapter 14, Problem 9\]
+- Question (WF): Can a Do-loops be inside another Do-loops?
+- Answer (WF): Yes, like other languages, SAS allows Do-Loop inside a Do-Loop.
 
 
 ## Chapter 15 Questions
