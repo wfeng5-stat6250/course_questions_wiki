@@ -599,10 +599,6 @@ e:g  function-name(argument-1,argument-2,argument-n) . However, for some functio
 used as arguments,When specifying a variable list, be sure to precede the list with the word "of". If you omit the
 word " of ", the function argument might not be interpreted as expected as long as the list or the array is preceded by the word "of".
 
-\[Chapter 13, Problem 5\]
- - Question (IW): How do you convert a numeric date, eg: 01032020 to a SAS date?
- - Answer: TBD
- 
 \[Chapter 13, Problem 2\]
 - Question (WF): How do I convert a dollar amount to a numeric type? Do I need to strip the '$' first or is there an informat to be used?
 - Answer (WF): If your string contains nondigits such as commas or dollar signs, you need to use the correct informat:
@@ -619,6 +615,17 @@ word " of ", the function argument might not be interpreted as expected as long 
 \[Chapter 13, Problem 3\]
 - Question (WF): what's the difference between comma6. and comma7.?
 - Answer (WF): the length of the value.
+
+\[Chapter 13, Problem 5\]
+ - Question (IW): How do you convert a numeric date, eg: 01032020 to a SAS date?
+ - Answer (MS): no conversion is required, you can specify the input date format, and output date format. this particular format is MMDDYY10.
+ ```SAS
+ 	data want;
+     		set have;
+     		SASdate = input(date,yymmdd10.);
+     		format SASDate mmddyy10.;
+	run;
+``` 
 
 \[Chapter 13, Problem 6\]
 - Question (WF): How can I set the default variable length globally to something lower than 200?
