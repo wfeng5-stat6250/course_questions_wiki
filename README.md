@@ -643,8 +643,35 @@ word " of ", the function argument might not be interpreted as expected as long 
 
 
 ## Chapter 15 Questions
+\[Chapter 15, Problem 1\]
+- Question (WF): What is the maximum value of multi-dimensional array?
+- Answer (WF): There are limitations for variables, but there is no limitation for array.
 
+- Question (WF): What is the purpose to use array in SAS?
+- Answer (WF): Array is set of variables grouped together for the duration of a data step by being given a name in an ARRAY statement. Array allows SAS to repeat an action or set of actions on each of a group of variables, write shorter programs, and restructure a SAS data set to change the unit of observation.
 
+\[Chapter 15, Problem 2\]
+- Question (WF): Does the Array index starts with 0 or 1?
+- Answer (WF): Unlike some other languages, the index of Array in SAS starts with 1.
+
+- Question (WF): Can a numeric value in array be changed to character?
+- Answer (WF): All variables that are associated with an array must be of the same type, either character or numeric. As a result, arrays are typically referred to as either character arrays or numeric arrays.
+
+\[Chapter 15, Problem 7\]
+- Question (WF): Can I do calculations against array?
+- Answer (WF): You can do many things with SAS arrays. You can: perform repetitive calculations, create many variables with like attributes, read data, make the same comparison for several variables, and perform table lookup.
+
+- Question (WF): How do I combine two arrays?
+- Answer (WF): You need to extract variable’s value from source array, perform calculation, and then write value to the destination array.
+
+\[Chapter 15, Problem 8\]
+- Question (WF): What is the purpose of temporary array?
+- Answer (WF): When elements of an array are constants needed only for the duration of the DATA step, you can omit the variables associated with an array group and instead use temporary array elements. Although they behave like variables, temporary array elements:
+
+    - do not appear in the resulting data set;
+    - do not have names and can be only referenced by their array names and dimensions; and
+    - are automatically retained, rather than being reset to missing at the beginning of the next iteration of the DATA step.
+    
 ## Chapter 16 Questions
 
 [Chapter 16, Problem 5]
